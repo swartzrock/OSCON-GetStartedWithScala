@@ -1,0 +1,135 @@
+/**
+ * Get Started With Scala
+ * Theme for OSCON deck
+ */
+
+// Default mixins and settings -----------------
+@import "css/theme/template/mixins";
+@import "css/theme/template/settings";
+// ---------------------------------------------
+
+
+// Background of the presentation
+$backgroundColor: #f3f3f9;
+
+// Primary/body text
+$mainFont: 'Lato', sans-serif;
+$mainFontSize: 3em;
+$mainColor: #222;
+
+// Headings
+$headingMargin: 0 0 20px 0;
+$headingFont: 'Open Sans', sans-serif;
+$headingColor: black;
+$headingLineHeight: 1.3em;
+$headingLetterSpacing: 0.02em;
+$headingTextTransform: none;
+$headingTextShadow: 2px 2px 2px rgba(0,0,0,0.25);
+$heading1TextShadow: $headingTextShadow;
+
+// Links and actions
+$linkColor: #333;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: #FF5E99;
+$selectionColor: #fff;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}
+
+#body .reveal {
+	h1 { font-size: 2em; font-weight: bold; }
+	h2 { font-size: 2em; font-weight: bold; }
+}
+
+
+// Our own styles
+
+#body {
+  .bigfancy {
+  	color: #ea6; 
+  	font: normal 4em Lobster,serif;
+  	text-shadow: 1px 2px 3px rgba(0,0,0,0.7)
+  }
+}
+
+
+
+// Include our fonts
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Oswald Regular"), local("Oswald-Regular"), url(fonts/Oswald-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Oswald Bold"), local("Oswald-Bold"), url(fonts/Oswald-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster"), url(fonts/Lobster.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(fonts/OpenSans.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(fonts/OpenSans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Open Sans Italic"), local("OpenSans-Italic"), url(fonts/OpenSans-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url(fonts/OpenSans-BoldItalic.ttf) format("truetype");
+}
+
+
+// Include theme-specific fonts
+@font-face {
+	font-family: 'League Gothic';
+	src: url('lib/font/league_gothic-webfont.eot');
+	src: url('lib/font/league_gothic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('lib/font/league_gothic-webfont.woff') format('woff'),
+		 url('lib/font/league_gothic-webfont.ttf') format('truetype'),
+		 url('lib/font/league_gothic-webfont.svg#LeagueGothicRegular') format('svg');
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+
+
+
+// Theme template ------------------------------
+@import "css/theme/template/theme";
+// ---------------------------------------------

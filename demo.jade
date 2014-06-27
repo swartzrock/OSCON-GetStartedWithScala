@@ -1,0 +1,59 @@
+
+section
+  .bigfancy OSCON Slides
+
+
+section
+  img(src="http://swartzrock.github.io/javaonadiet/images/fry_not_sure.png")
+
+section(data-background="http://www.scalabythebay.org/images/off_the_grid2.jpg")
+  .bigfancy Full screen images
+
+section
+  h1 Numbers
+  ol 
+    li Intro
+    li Setup
+    li Part 1
+
+
+section
+  h1 Bullet points
+  ul 
+    li Intro
+    li Setup
+    li Part 1
+
+
+section
+  h2 Fragments
+  h4 aka Step By Step Reveals
+  ul 
+    li.fragment Well
+    li.fragment That's
+    li.fragment You're 
+    li.fragment Opinion 
+    li.fragment Man
+
+
+section
+  h2 Real Scala Code
+  pre
+    code(data-trim, contenteditable).
+      def getStatusMessage(status: Int): String = {
+        var msg = status match {
+          case 200 => "ok"
+          case 500 => "error"
+          case _   => throw new Exception(s"$status was unexpected")
+        }
+        println(s"Returning '$msg' for: $status")
+        msg
+      }
+
+
+section
+  .bigfancy Questions?
+
+
+
+
