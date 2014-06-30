@@ -1,24 +1,119 @@
+doctype 5
 
 section
-  h1 Instructionables
-  h3 Hold On
+  h3 Get Started Developing With 
+    b Scala
 
 
 section
-  h1 What's Covered
-  ol 
-    li Types &amp; Data
-    li Values and Variables
-    li Collections
-    li Expressions
-    li Functions
-    li Higher Order Collections
-    li Case Classes
-    li Party
+  h2 Part 1
+  h1 Introduction
+
 
 section
-  h2 Now get busy
+  p.big The Scala Language
+  p.big.fragment The Java Virtual Machine
+  p.big.fragment Lambda Expressions
+  p.big.fragment Immutable Data
+  p.big.fragment Static Types
+
+
+section.intro(data-background="#013")
+  h1 We Have <b>Much</b> To Cover Today
+
+section.imgleft
+  img(src="instruction_images/java.jpg")
+  ul
+    li Compiled
+    li.fragment Object-Oriented
+    li.fragment Static Types
+    li.fragment Fast (eventually)
+
+
+
+section.imgleft
+  img(src="instruction_images/pizza.jpg")
+  ul
+    li + Generic Types
+    li.fragment + Higher-Order Functions
+    li.fragment + Pattern Matching
+
+
+section.imgleft
+  img(src="instruction_images/java15.jpg")
+  ul
+    li Generic Types
+    li.fragment Compiler Optimizing
+    li.fragment.strike Higher-Order Functions
+    li.fragment.strike Pattern Matching
+
+
+section.imgleft
+  img(src="instruction_images/scala_java.jpg")
+  ul
+    li Higher-Order Functions
+    li.fragment Pattern Matching
+    li.fragment Immutable Data
+    li.fragment Mixins
+
 
 section
-  h1 THE END
-  h3 THanks!
+  pre
+    code(data-trim, contenteditable).
+      def getStatusMessage(status: Int): String = {
+        var msg = status match {
+          case 200 => "ok"
+          case 500 => "error"
+          case _   => throw new Exception(s"$status was unexpected")
+        }
+        println(s"Returning '$msg' for: $status")
+        msg
+      }
+
+
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      def getStatusMessage(status: Int): String = {
+        var msg = status match {
+          case 200 => "ok"
+          case 500 => "error"
+          case _   => throw new Exception(s"$status was unexpected")
+        }
+        println(s"Returning '$msg' for: $status")
+        msg
+      }
+      def getStatusMessage(status: Int): String = {
+        var msg = status match {
+          case 200 => "ok"
+          case 500 => "error"
+          case _   => throw new Exception(s"$status was unexpected")
+        }
+        println(s"Returning '$msg' for: $status")
+        msg
+      }
+
+
+
+
+
+//- section
+//-   h1 What's Covered
+//-   ol 
+//-     li Types &amp; Data
+//-     li Values and Variables
+//-     li Collections
+//-     li Expressions
+//-     li Functions
+//-     li Higher Order Collections
+//-     li Case Classes
+//-     li Party
+
+//- section
+//-   h2 Now get busy
+
+//- section
+//-   h1 THE END
+//-   h3 THanks!

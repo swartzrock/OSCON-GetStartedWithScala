@@ -10,16 +10,16 @@
 
 
 // Background of the presentation
-$backgroundColor: #f3f3f9;
+$backgroundColor: white;
 
 // Primary/body text
-$mainFont: 'Lato', sans-serif;
+$mainFont: "Merriweather Sans", sans-serif;
 $mainFontSize: 3em;
 $mainColor: #222;
 
 // Headings
 $headingMargin: 0 0 20px 0;
-$headingFont: 'Open Sans', sans-serif;
+$headingFont: 'Merriweather Sans', sans-serif;
 $headingColor: black;
 $headingLineHeight: 1.3em;
 $headingLetterSpacing: 0.02em;
@@ -42,12 +42,24 @@ $selectionColor: #fff;
 }
 
 #body .reveal {
-	h1 { font-size: 2em; font-weight: bold; }
+  pre { 
+    box-shadow: none; width: 200%; font-size: .7em;
+    overflow: visible; 
+  }
+  code { 
+    max-height: 800px; font-family: Menlo; 
+    line-height: 1.35em; background: white;
+    .hljs-keyword { font-weight: bold; color: #009; }
+  }
+	h1 { font-size: 2.5em; font-weight: bold; }
 	h2 { font-size: 2em; font-weight: bold; }
+  img { box-shadow: none; border: none; }
+  li { list-style-type: none; }
 }
 
 
 // Our own styles
+$introFont: Oswald;
 
 #body {
   .bigfancy {
@@ -55,6 +67,27 @@ $selectionColor: #fff;
   	font: normal 4em Lobster,serif;
   	text-shadow: 1px 2px 3px rgba(0,0,0,0.7)
   }
+  .big {
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+  .bullet1 {
+    li { 
+      font-size: 1.5em; 
+      list-style-type: circle; margin-bottom: .75em; 
+    }
+  }
+  .intro {
+    h1 { font: normal 2.5em $introFont;  color: #802; 
+      b { font: bold 1.5em $introFont;  color: #E26D01; } 
+    }
+  }
+  .imgleft {
+    div, img { width: 40%; vertical-align: middle; }
+    ul { width: 46%; margin-left: 60px; vertical-align: middle;  }
+    li { font-size: 1.2em; margin-bottom: .5em; }
+  }
+  .strike { text-decoration: line-through; }
 }
 
 
@@ -108,6 +141,44 @@ $selectionColor: #fff;
   font-style: italic;
   font-weight: 700;
   src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url(fonts/OpenSans-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather'), local('Merriweather'), url(fonts/Merriweather-Regular.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Merriweather Bold'), local('Merriweather-Bold'), url(fonts/Merriweather-Bold.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Merriweather Heavy'), local('Merriweather-Heavy'), url(fonts/Merriweather-Black.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather Sans Regular'), local('MerriweatherSans-Regular'), url(fonts/MerriweatherSans-Regular.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'), url(fonts/MerriweatherSans-Bold.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Merriweather Sans ExtraBold'), local('MerriweatherSans-ExtraBold'), url(MerriweatherSans-ExtraBold.ttf) format('woff');
 }
 
 
