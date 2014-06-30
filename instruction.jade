@@ -10,24 +10,35 @@ section
   h1 Introduction
 
 
+// Some of the items we'll cover
+// The language, and the Java Virtual Machine it's based on
+// Functions are another type of data, like Javascript
+// Specifying a variable's type at compile time & templated data structures
+// Or not using variables, but fixed values everywhere
 section
   p.big The Scala Language
   p.big.fragment The Java Virtual Machine
-  p.big.fragment Lambda Expressions
+  p.big.fragment First-Class Functions
+  p.big.fragment Static Types & Generics
   p.big.fragment Immutable Data
-  p.big.fragment Static Types
+  p.big.fragment Pattern Matching
+
 
 
 section.intro(data-background="#013")
-  h1 We Have <b>Much</b> To Cover Today
+  h1 We Have <b>So Much</b> To Cover Today
 
+
+// Let's start out with Java's features
 section.imgleft
   img(src="instruction_images/java.jpg")
   ul
     li Compiled
     li.fragment Object-Oriented
     li.fragment Static Types
-    li.fragment Fast (eventually)
+    li.fragment Fast 
+      span.fragment (eventually)
+    li.fragment
 
 
 
@@ -35,26 +46,155 @@ section.imgleft
   img(src="instruction_images/pizza.jpg")
   ul
     li + Generic Types
-    li.fragment + Higher-Order Functions
+    li.fragment + Optimizing Compiler
+    li.fragment + First-Class Functions
     li.fragment + Pattern Matching
+    li.fragment
 
 
 section.imgleft
   img(src="instruction_images/java15.jpg")
   ul
     li Generic Types
-    li.fragment Compiler Optimizing
-    li.fragment.strike Higher-Order Functions
+    li.fragment Optimizing Compiler
+    li.fragment.strike First-Class Functions
     li.fragment.strike Pattern Matching
+    li.fragment
 
-
+// Given that many of the features didn't make it into Java, he embarked on creating a new JVM language that would feature them all
 section.imgleft
   img(src="instruction_images/scala_java.jpg")
   ul
-    li Higher-Order Functions
+    li First-Class Functions
     li.fragment Pattern Matching
     li.fragment Immutable Data
-    li.fragment Mixins
+    li.fragment Awesome New Language
+    li.fragment
+
+// Before we dive into the official instruction, let's see what this "awesome" is about. First, variables
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      String name = "Phil";
+  div(style="height: 80px;")
+  .fragment
+    h3 Scala    
+    pre
+      code.big(data-trim, contenteditable).
+        var name: String = "Phil"
+
+// As part of writing an optimizing compiler, he realized that a compiler can infer data types
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      String name = "Phil";
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+      var name         = "Phil"
+
+
+// Java has a "final" addon keyword, but Scala has immutable data as an equal counterpart to variables
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      final String name = "Phil";
+  div(style="height: 80px;")
+  .fragment
+    h3 Scala    
+    pre
+      code.big(data-trim, contenteditable).
+        val name: String = "Phil"
+
+
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      final String name = "Phil";
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+      val name         = "Phil"
+
+
+
+// Finally lets compare function.
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      int doubler(int amount) { 
+        return amount * 2; 
+      }
+  div(style="height: 80px;")
+  .fragment
+    h3 Scala    
+    pre
+      code.big(data-trim, contenteditable).
+        def doubler(amount: Int): Int = {
+          amount * 2
+        }
+
+
+
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      int doubler(int amount) { 
+        return amount * 2; 
+      }
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+      def doubler(amount: Int): Int = amount * 2
+
+
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      int doubler(int amount) { 
+        return amount * 2; 
+      }
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+      def doubler(amount: Int) = amount * 2
+
+
+
+
+
+
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      final String name = "Phil";
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+      val name         = "Phil"
+
+
+
+
+
+
+
+
+
+
 
 
 section
