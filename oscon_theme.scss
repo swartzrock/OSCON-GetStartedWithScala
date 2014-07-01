@@ -10,7 +10,7 @@
 
 
 // Background of the presentation
-$backgroundColor: white;
+$backgroundColor: #faffff;
 
 // Primary/body text
 $mainFont: "Merriweather Sans", sans-serif;
@@ -78,9 +78,24 @@ $introFont: Oswald;
       list-style-type: circle; margin-bottom: .75em; 
     }
   }
+  .green {
+    h1,h2 {  color: #9b7; 
+      b {  color: #ffa; } 
+    }
+  }
+  .white {
+    h1,h2 {  color: white;
+      b {  color: white; } 
+    }
+  }
+  .red {
+    h1,h2,h3 {  color: #a33; 
+      b {  color: #e60; } 
+    }
+  }
   .intro {
-    h1 { font: normal 2.5em $introFont;  color: #802; 
-      b { font: bold 1.5em $introFont;  color: #E26D01; } 
+    h1 { font: normal 2.75em $introFont;  
+      b { font: bold 1.75em $introFont;  } 
     }
   }
   .imgleft {

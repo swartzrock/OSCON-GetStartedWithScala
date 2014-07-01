@@ -1,7 +1,9 @@
 doctype 5
 
-section
-  h3 Get Started Developing With 
+section.intro.white(data-background="#245")
+  h1 Getting 
+    b Started  
+    | with 
     b Scala
 
 
@@ -25,8 +27,11 @@ section
 
 
 
-section.intro(data-background="#013")
+section.intro.green(data-background="#134")
   h1 We Have <b>So Much</b> To Cover Today
+
+//- section.intro.red(data-background="#013")
+//-   h1 We Have <b>So Much</b> To Cover Today
 
 
 // Let's start out with Java's features
@@ -82,7 +87,20 @@ section
     h3 Scala    
     pre
       code.big(data-trim, contenteditable).
+        var name: String = "Phil";
+
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      String name = "Phil";
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
         var name: String = "Phil"
+
+
 
 // As part of writing an optimizing compiler, he realized that a compiler can infer data types
 section
@@ -108,9 +126,9 @@ section
     h3 Scala    
     pre
       code.big(data-trim, contenteditable).
-        val name: String = "Phil"
+        val name: String = "Phil";
 
-
+// Again, you may not need the semi-colon or type
 section
   h3 Java
   pre
@@ -124,7 +142,7 @@ section
 
 
 
-// Finally lets compare function.
+// Finally lets compare functions.
 section
   h3 Java
   pre
@@ -138,11 +156,29 @@ section
     pre
       code.big(data-trim, contenteditable).
         def doubler(amount: Int): Int = {
+          return amount * 2
+        }
+
+
+// Return
+section
+  h3 Java
+  pre
+    code.big(data-trim, contenteditable).
+      int doubler(int amount) { 
+        return amount * 2; 
+      }
+  div(style="height: 80px;")
+  h3 Scala    
+  pre
+    code.big(data-trim, contenteditable).
+        def doubler(amount: Int): Int = {
           amount * 2
         }
 
 
 
+// The braces are nice, but not necessary for a single line
 section
   h3 Java
   pre
@@ -155,8 +191,10 @@ section
   pre
     code.big(data-trim, contenteditable).
       def doubler(amount: Int): Int = amount * 2
+       
+       
 
-
+// Neither is the return type if Scala can figure it out
 section
   h3 Java
   pre
@@ -169,22 +207,56 @@ section
   pre
     code.big(data-trim, contenteditable).
       def doubler(amount: Int) = amount * 2
+       
+       
+
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Opaque
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b.strike Opaque
+
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Object Oriented
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Type Safe
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Expressive
+    
+section.intro.red(data-background="#125")
+  h1 Scala is built for
+    b Speed
+    
+section.intro.red(data-background="#125")
+  h1 Scala is built for
+    b Performance
+    
+section.intro.red(data-background="#125")
+  h1 Scala is built for
+    b Productivity
+    
 
 
-
+section.intro.green(data-background="#134")
+  h1 Okay, that's enough about <b>Scala</b>
+    
+section.intro.green(data-background="#134")
+  h1 Now let's learn some <b>Scala</b>
+    
+    
 
 
 
 section
-  h3 Java
-  pre
-    code.big(data-trim, contenteditable).
-      final String name = "Phil";
-  div(style="height: 80px;")
-  h3 Scala    
-  pre
-    code.big(data-trim, contenteditable).
-      val name         = "Phil"
+  h2 Part 2
+  h1 Language Basics
 
 
 
@@ -194,66 +266,3 @@ section
 
 
 
-
-
-
-section
-  pre
-    code(data-trim, contenteditable).
-      def getStatusMessage(status: Int): String = {
-        var msg = status match {
-          case 200 => "ok"
-          case 500 => "error"
-          case _   => throw new Exception(s"$status was unexpected")
-        }
-        println(s"Returning '$msg' for: $status")
-        msg
-      }
-
-
-
-
-section
-  pre
-    code(data-trim, contenteditable).
-      def getStatusMessage(status: Int): String = {
-        var msg = status match {
-          case 200 => "ok"
-          case 500 => "error"
-          case _   => throw new Exception(s"$status was unexpected")
-        }
-        println(s"Returning '$msg' for: $status")
-        msg
-      }
-      def getStatusMessage(status: Int): String = {
-        var msg = status match {
-          case 200 => "ok"
-          case 500 => "error"
-          case _   => throw new Exception(s"$status was unexpected")
-        }
-        println(s"Returning '$msg' for: $status")
-        msg
-      }
-
-
-
-
-
-//- section
-//-   h1 What's Covered
-//-   ol 
-//-     li Types &amp; Data
-//-     li Values and Variables
-//-     li Collections
-//-     li Expressions
-//-     li Functions
-//-     li Higher Order Collections
-//-     li Case Classes
-//-     li Party
-
-//- section
-//-   h2 Now get busy
-
-//- section
-//-   h1 THE END
-//-   h3 THanks!
