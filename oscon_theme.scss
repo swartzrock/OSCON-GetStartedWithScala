@@ -41,6 +41,7 @@ $selectionColor: #fff;
 	background: $backgroundColor;
 }
 
+
 #body .reveal {
   pre { 
     box-shadow: none; width: 200%; font-size: .7em;
@@ -53,9 +54,24 @@ $selectionColor: #fff;
   }
 	h1 { font-size: 2.5em; font-weight: bold; }
 	h2 { font-size: 2em; font-weight: bold; }
-  h3 { font-size: 1.6em; font-weight: bold; margin-bottom: .5em; }
-  img { box-shadow: none; border: none; }
+  h3 { 
+    font-size: 1.6em; font-weight: bold; margin-bottom: .5em; 
+  }
+
+  img { 
+    box-shadow: none; border: none; 
+  }
   li { list-style-type: none; }
+
+  header {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    z-index: 500;
+    font: bold 1em $headingFont;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+  }
 }
 
 
@@ -99,7 +115,7 @@ $introFont: Oswald;
     }
   }
   .imgleft {
-    div, img { width: 40%; vertical-align: middle; }
+    div, img { width: 35%; vertical-align: middle; }
     ul { width: 46%; margin-left: 60px; vertical-align: middle;  }
     li { font-size: 1.2em; margin-bottom: .5em; }
   }

@@ -1,5 +1,6 @@
 doctype 5
-head
+html
+  head
     meta(charset='utf-8')
     title OSCON
 
@@ -19,11 +20,13 @@ head
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        link.href = 'pdf.css';
+        //- document.getElementsByTagName( 'head' )[0].appendChild( link );
+        //- document.documentElement.className = "printpdf";
       }
   body#body
     .reveal
+      header 
       .slides
         != yield
 
