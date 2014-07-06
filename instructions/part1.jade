@@ -211,15 +211,13 @@ section
   pre
     code.big(data-trim, contenteditable).
       public class Node {
-        private String name;
+        public String name;
         public Node(String name) { this.name = name; }
-        public Date getName() { return name; }
-        public void setName(String name) { 
-          this.name = name 
-        }
         override public void String toString() { 
           return name.toString(); 
         }
+        override public boolean equals(Node n) {
+          return name.equals(n.name);
       }
 
 
@@ -229,46 +227,58 @@ section
   h3 Scala    
   pre
     code.big(data-trim, contenteditable).
-      case class Node(var created: Date)
+      case class Node(name: String)
 
 
 
 
 section.intro.red(data-background="#125")
-  h1 Scala is 
-    b Opaque
+  h1 How would you <b>describe</b> Scala?
     
 section.intro.red(data-background="#125")
   h1 Scala is 
-    b.strike Opaque
-
+    b Mysterious
+    
 section.intro.red(data-background="#125")
   h1 Scala is 
-    b Object Oriented
-    
+    b.strike Mysterious
+
 section.intro.red(data-background="#125")
   h1 Scala is 
     b Type Safe
     
 section.intro.red(data-background="#125")
   h1 Scala is 
+    b Object-Oriented
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Functional Programming
+  p(style="color: white; padding-top: 1em;") (whatever <i>that</i> means)
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
     b Expressive
     
 section.intro.red(data-background="#125")
-  h1 Scala is built for
+  h1 Scala is 
+    b Limber
+    
+section.intro.red(data-background="#125")
+  h1 Scala is built for 
     b Speed
     
 section.intro.red(data-background="#125")
-  h1 Scala is built for
+  h1 Scala is built for 
     b Performance
     
 section.intro.red(data-background="#125")
-  h1 Scala is built for
+  h1 Scala is built for 
     b Productivity
     
 
 
-section.intro.green(data-background="#134")
+section.intro.green(data-background="#621")
   h1 Okay, that's enough about <b>Scala</b>
     
 section.intro.green(data-background="#134")

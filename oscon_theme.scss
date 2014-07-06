@@ -56,6 +56,7 @@ $selectionColor: #fff;
 	h2 { font-size: 2em; font-weight: bold; }
   h3 { 
     font-size: 1.6em; font-weight: bold; margin-bottom: .5em; 
+    text-shadow: none;
   }
 
   img { 
@@ -71,6 +72,12 @@ $selectionColor: #fff;
     z-index: 500;
     font: bold 1em $headingFont;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+  }
+  table {
+    margin: 0 auto;
+    th, td { padding: .1em 1em; }
+    th { border-bottom: 3px solid black; }
+    td { border-bottom: 1px solid #ccc; font-size: .9em;}
   }
 }
 

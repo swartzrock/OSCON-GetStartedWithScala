@@ -5,7 +5,208 @@ section
 
 
 section.intro.green(data-background="#134")
+  h1 Time to 
+    b REPL 
+    | with Scala
+
+
+
+
+section
+  h2 Run "scala"
+
+section
+  h2 println("Hello, Scala")
+
+
+section(data-background="instruction_images/repl_hello.png")
+
+
+section
+  h2 "Hello, Scala"
+
+section(data-background="instruction_images/repl_hello_res0.png")
+
+section(data-background="instruction_images/repl_hello_res0_info.png")
+
+
+section.intro.green(data-background="#136")
+  h1  <b>Expressions</b> are valid commands
+
+section.intro.green(data-background="#136")
+  h1 <b>Expression</b>
+  p(style="color: white; padding-top: 0;") defn: A unit of code that returns a value <br>after it has been executed.
+
+
+
+
+
+section(style="text-align: left; margin-left: 5em;")
+  h3 12
+    span.fragment : Int
+  br
+  h3 3.1416
+    span.fragment : Double
+  br
+  h3 'A'
+    span.fragment : Char
+  br
+  h3 List(1, 3, 20)
+    span.fragment : List[Int]
+
+
+section.intro.green(data-background="#136")
+  h1 <b>Generics</b>
+  p(style="color: white; padding-top: 0;") defn: Code or data that takes a type as a parameter<br>specifying a type to use at runtime
+  br
+  p(style="color: white; padding-top: 0;").fragment List[A] 
+    spam.fragment could be List[Int] or List[Char] or List[String]
+  p(style="color: white; padding-top: 0;").fragment or List[List[Int]]
+
+
+
+
+section(data-state="h_typetable", style="text-align: center;")
+  style .h_typetable header:after{content:"Scala Types"}
+  br
+  table
+    tr
+      th Name 
+      th Description
+      th Example
+    tr
+      td Any
+      td Base type
+      td 
+        code n/a
+    tr
+      td Boolean
+      td Either true or false
+      td 
+        code false
+    tr
+      td Char
+      td Unicode character
+      td 
+        code 'A'
+    tr
+      td Double
+      td 4-byte floating point
+      td 
+        code 9.23
+    tr
+      td Int
+      td 4-byte integer
+      td 
+        code 10
+    tr
+      td List
+      td Sequence of items
+      td 
+        code List(1,2,3)
+    tr
+      td Long
+      td 8-byte integer
+      td 
+        code 327L
+    tr
+      td String
+      td Text
+      td 
+        code "Hello"
+
+
+
+
+section(data-state="h_value")
+  style.
+    .h_value header:after{ content: "Syntax: Defining A Value"; }
+  pre
+    code.big(data-trim, contenteditable).
+      val identifier[: type] = expression
+  br
+  pre
+    code.big(data-trim, contenteditable).fragment.
+      val count = 20 + 5
+      val eolChar = '|'
+      val names = List("Frankie", "Johnny")
+
+section(data-state="h_value")
+  style.
+    .h_value header:after{ content: "Syntax: Defining A Value"; }
+  pre
+    code.big(data-trim, contenteditable).
+      val identifier[: type] = expression
+  br
+  pre
+    code.big(data-trim, contenteditable).
+      val count: Int = 20 + 5
+      val eolChar: Char = '|'
+      val names: List[String] = List("Frankie", "Johnny")
+
+section
+  pre
+    code.big(data-trim, contenteditable).
+      scala> val start = 53355
+      start: Int = 53355
+
+      scala> val end = 53492
+      end: Int = 53492
+
+      scala> val diff = end - start
+      diff: Int = 137
+
+
+
+section(data-state="h_var")
+  style.
+    .h_var header:after{ content: "Syntax: Defining A Variable"; }
+  pre
+    code.big(data-trim, contenteditable).
+      var identifier[: type] = expression
+  br
+  pre
+    code.big(data-trim, contenteditable).fragment.
+      var count = 20 + 5
+      count -= 12
+      count = count * 2
+
+section(data-state="h_var")
+  pre
+    code.big(data-trim, contenteditable).
+      var identifier[: type] = expression
+  br
+  pre
+    code.big(data-trim, contenteditable).
+      var count: Int = 20 + 5
+      count -= 12
+      count = count * 2
+
+
+
+
+
+
+section.intro.green(data-background="#136")
+  h1 <b>Expression</b>
+  p(style="color: white; padding-top: 0;") defn: A unit of code that returns a value <br>after it has been executed.
+
+
+
+
+
+
+
+
+
+
+section.intro.green(data-background="#134")
+  h1 Scala data is 
+    b Meaningful
+
+section.intro.green(data-background="#134")
   h1 <b>Values</b> &amp; <b>Types</b>
+
 
 
 section(data-state="header1")
