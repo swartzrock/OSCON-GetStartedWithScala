@@ -44,12 +44,16 @@ $selectionColor: #fff;
 
 #body .reveal {
   pre { 
-    box-shadow: none; width: 200%; font-size: .7em;
+    box-shadow: none; 
+    width: 200%; 
     overflow: visible; 
   }
   code { 
-    max-height: 800px; font-family: Menlo; 
-    line-height: 1.35em; background: white;
+    font-family: Menlo;
+    line-height: 1.2em;
+    font-size: 50px; 
+    max-height: 800px; 
+    background: $backgroundColor;
     .hljs-keyword { font-weight: bold; color: #009; }
   }
 	h1 { font-size: 2.5em; font-weight: bold; }
@@ -71,13 +75,14 @@ $selectionColor: #fff;
     text-align: center;
     z-index: 500;
     font: bold 1em $headingFont;
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+    text-shadow: 1px 2px 2px rgba(0,0,0,0.15);
   }
   table {
     margin: 0 auto;
     th, td { padding: .1em 1em; }
     th { border-bottom: 3px solid black; }
     td { border-bottom: 1px solid #ccc; font-size: .9em;}
+    td code { font-size: .8em; }
   }
 }
 
@@ -85,15 +90,11 @@ $selectionColor: #fff;
 // Our own styles
 $introFont: Oswald;
 
-#body {
+#body .reveal {
   .bigfancy {
   	color: #ea6; 
   	font: normal 4em Lobster,serif;
   	text-shadow: 1px 2px 3px rgba(0,0,0,0.7)
-  }
-  .big {
-    font-size: 1.5em;
-    line-height: 1.2em;
   }
   .bullet1 {
     li { 
@@ -106,7 +107,13 @@ $introFont: Oswald;
       b {  color: #ffa; } 
     }
   }
+  .darkBlue {
+    h1,h2 {  color: #128; 
+      b {  color: #24a; } 
+    }
+  }
   .white {
+    color: white;
     h1,h2 {  color: white;
       b {  color: white; } 
     }
@@ -127,6 +134,10 @@ $introFont: Oswald;
     li { font-size: 1.2em; margin-bottom: .5em; }
   }
   .strike { text-decoration: line-through; }
+  .left { text-align: left; }
+  .syntax {
+    font-size: 70px
+  }
 }
 
 

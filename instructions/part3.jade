@@ -1,0 +1,302 @@
+
+
+section.intro.green(data-background="#134")
+  h1 Now let's learn more <b>Expressions</b> 
+
+
+
+section.intro.green(data-background="#136")
+  h1 <b>Expression</b>
+  p(style="color: white; padding-top: 0;") defn: A unit of code that returns a value <br>after it has been executed.
+
+
+
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      val x = 25
+  pre
+    code(data-trim, contenteditable).fragment.
+      x * 2
+
+
+
+section(data-state="h_expblock")
+  style.
+    .h_expblock header:after{ content: "Expression Blocks"; }
+  pre
+    code(data-trim, contenteditable).
+      { 
+        val x = 25
+        x * 2
+      } 
+
+
+section(data-state="h_expblock")
+  pre
+    code(data-trim, contenteditable).
+      val y = { 
+        val x = 25
+        x * 2
+      } 
+    br
+    code(data-trim, contenteditable).fragment.
+      val greeting = { "Hello" }
+    br
+    code(data-trim, contenteditable).fragment.
+      val sum = { { { 2 } } }
+
+
+section.intro.green(data-background="#136")
+  h1 Expression <b> Block</b>
+  p(style="color: white; padding-top: 0;") defn: An expression composed of one or more expressions surrounded by curley braces.
+
+
+section.intro.green(data-background="#134")
+  h1 <b>More </b>Expressions
+
+
+
+//- section(data-state="h_if")
+//-   style.
+//-     .h_if header:after{ content: "Syntax: If expressions"; }
+//-   pre
+//-     code(data-trim, contenteditable).
+//-       if (boolean-expression) expression
+//-   br
+//-   pre
+//-     code(data-trim, contenteditable).fragment.
+//-       if (5 > 10) "impossible!"
+//-   br
+//-   pre
+//-     code(data-trim, contenteditable).fragment.
+//-       if (authenticated) {
+//-         println("User is authenticated")
+//-         println("We are done now")
+//-       } 
+
+
+
+section(data-state="h_if_else")
+  style.
+    .h_if_else header:after{ content: "Syntax: If-Else expressions"; }
+  pre
+    code(data-trim, contenteditable).
+      if (boolean) expression else expression
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      if (x > 10) { 
+        println("more") 
+      } else { 
+        println("less")
+      }
+    code(data-trim, contenteditable).fragment.
+      val msg = if (x > 10) { "more" } else { "less" }
+    code(data-trim, contenteditable).fragment.
+      val msg = if (x > 10) "more" else "less"
+
+
+
+
+section(data-state="h_if_else")
+  br
+  pre
+    code(data-trim, contenteditable).
+      if (x < 0) {
+        "less than"
+      }
+      else if (x > 0) {
+        "greater than"
+      }
+      else {
+        "about the same"
+      }
+
+
+section(data-state="h_if_else")
+  br
+  pre
+    code(data-trim, contenteditable).
+      if (x < 0) {
+        "less than"
+      }
+      else 
+        if (x > 0) {
+          "greater than"
+        }
+        else {
+          "about the same"
+        }
+
+
+section.intro.green(data-background="#134")
+  h1 
+    b Pattern Matching
+
+
+
+section(data-state="h_match")
+  style.
+    .h_match header:after{ content: "Syntax: Match expressions"; }
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val hex = color match {
+        case "red"   => "#f00"
+        case "green" => "#0f0"
+        case "blue"  => "#0ff"
+      }   
+
+section(data-state="h_match")
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).
+      val valid = parts match {
+        case List(12, 24) => true
+        case List(18, 32) => true
+        case List(22, 28) => false
+      }   
+
+
+section(data-state="h_match")
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).
+      val msg = status match {
+        case 200 => "okay"
+        case 400 => "not okay"
+      }   
+
+
+
+section(data-state="h_match")
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).
+      val msg = 500 match {
+        case 200 => "okay"
+        case 400 => "not okay"
+      }
+  .red
+    h2
+      code.fragment scala.MatchError: 500
+
+
+section.intro.green(data-background="#134")
+  h1 Pattern Matching with 
+    b Value Binding
+
+
+
+section(data-state="h_match_wild")
+  style.
+    .h_match_wild header:after{ content: "Syntax: Value Binding"; }
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+        case value   => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val msg = 500 match {
+        case 200 => "okay"
+        case 400 => "not okay"
+        case x   => "hmm got this: " + x
+      }   
+
+section(data-state="h_match_wild")
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern => expression
+        case value   => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).
+      val valid = parts match {
+        case List(12, x ) => true
+        case List(18, 32) => true
+        case List(13, 28) => false
+      }   
+
+
+
+section.intro.green(data-background="#134")
+  h1 Pattern Matching with 
+    b Pattern Guards
+
+
+
+
+section(data-state="h_match_pattern")
+  style.
+    .h_match_pattern header:after{ content: "Syntax: Pattern Guards"; }
+  br
+  pre
+    code(data-trim, contenteditable).
+      expression match {
+        case pattern          => expression
+        case value if boolean => expression
+        case value            => expression
+      }   
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val msg = status match {
+        case 200 => "okay"
+        case 400 => "not okay"
+        case x if x < 500 => "odd, got this: " + x
+        case x => "error! got this error status: " + x
+      }   
+
+
+
+
+section.intro.green(data-background="#134")
+  h1 Congrats on mastering 
+    b Expressions
+
+
+
+section.intro.darkBlue(data-background="#ee3")
+  h1 How about we 
+    b try out
+    |  your new skills?
+
+
+
+
+
+

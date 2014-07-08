@@ -1,0 +1,111 @@
+
+
+section.intro.green(data-background="#134")
+  h1 It's time to get 
+    b Functional 
+
+
+section.intro.red(data-background="#125")
+  h1 What is a 
+    b Function
+    |  anyways?
+
+    
+section.intro.green(data-background="#136")
+  h1 <b>Function</b>
+  p.white(style="padding-top: 0;") defn: An expression with a name & input parameters.
+  p.white.fragment and maybe generics
+
+
+section(data-state="h_function")
+  style.
+    .h_function header:after{ content: "Syntax: Functions"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      def name = expression
+    br
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      def greeting = "Hello, World"
+      val message = greeting + ", here I am!"
+
+      println(message)
+
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).syntax.
+      def name = expression
+    br
+    br
+    br
+    code(data-trim, contenteditable).
+      def greeting = "Hello, World"
+      def message = greeting + ", here I am!"
+
+      println(message)
+
+ 
+
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).syntax.
+      def name: type = expression
+    br
+    br
+    br
+    code(data-trim, contenteditable).
+      def greeting: String = "Hello, World"
+      def message: String = greeting + ", here I am!"
+
+      println(message)
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      val now = System.currentTimeMillis
+      val seconds = now / 1000
+      "Num seconds since 1970 = " + seconds
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      {
+        val now = System.currentTimeMillis
+        val seconds = now / 1000
+        "Num seconds since 1970 = " + seconds
+      }
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      def numSeconds: String = {
+        val now = System.currentTimeMillis
+        val seconds = now / 1000
+        "Num seconds since 1970 = " + seconds
+      }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
