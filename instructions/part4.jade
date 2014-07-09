@@ -95,6 +95,56 @@ section(data-state="h_function")
 
  
 
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      def numSeconds: String = {
+        val now = System.currentTimeMillis
+        val seconds = now / 1000
+        "Num seconds since 1970 = " + seconds
+      }
+
+      val since1970: String = numSeconds()
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      def numSeconds(then: Long): String = {
+        val now = System.currentTimeMillis
+        val seconds = (now - then) / 1000
+        "Num seconds since " + then.toString + " = " + seconds
+      }
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      def numSeconds(then: Long): String = {
+        val now = System.currentTimeMillis
+        val seconds = (now - then) / 1000
+        "Num seconds since " + then.toString + " = " + seconds
+      }
+
+      val thisYear: String = numSeconds(1388534400)
+
+ 
+
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).
+      def numSeconds(then: Long, description: String): String = {
+        val now = System.currentTimeMillis
+        val seconds = (now - then) / 1000
+        "Num seconds since " + description + " = " + seconds
+      }
+
+      val thisYear: String = 
+          numSeconds(1388534400, "the beginning of this year")
+ 
+
 
 
 
