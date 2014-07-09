@@ -4,9 +4,172 @@ section.intro.green(data-background="#134")
     b really 
     | functional 
 
+//what is a function and why do we care? lil philosophical detour
+favorite picture!!!!
+A function is a relation between values where each of its input values gives back exactly one output value
+//purity: the box is closed--nothing goes into it at any point after the input, nothing outside is affected
 
-// your content can go here
+//mention multiple inputs
+//limits are not enforced by the language
+	<h2>Some Functions</h2>
+				<ul>
+					<li>Math.sqrt(x)</li>
+					<li>Collections.max(list)</li>
+					<li>Arrays.copyOf(original, newLength)</li>
+					<li>String.valueOf(anInt)</li>
 
+//unit testing, debugging, correctness
+Deterministic
+You will always get the same result if you run them with the same data.
+
+//define referential transparency
+//readability, reuse, refactoring
+Encapsulated.
+"With a referentially transparent function, the interface-level activity is all one needs to know about its behavior."
+
+//fancy way of saying order doesn't matter
+//parallelization, concurrency, lazy evaluation
+//do we have to do the first two lines in the same order?
+//do the same computers have to do them?
+//when do they have to be done
+Commutative
+val firstThing = doOneThing()
+val secondThing = doAnotherThing()
+
+val thirdThing = doTheLastThing(firstThing, secondThing)
+
+//this gets us most of the way there with the black boxing
+//great for concurrency (inherently threadsafe), great for rollback of data, makes lots of work simpler
+Immutable data
+Once an object is created, it cannot be changed.
+If you need to change an object, make your own copy.
+String s1 = "san dimas high school football rules"
+String s2 = s1.toUpperCase
+
+println("string 1: " + s1);
+println("string 2: " + s2);
+
+//try to build everything out of them
+Functions are First-Class
+
+// what is a first class object? assigned to vars, put in a data structure,
+// returned from a function, passed as a parameter
+val longSkinnyThing: String = "this is a string"
+val listOfThem: List[String] = List("yarn","twine","thread")
+val newLongSkinnyThing: String = spinFromFiber("wool")
+tieInAKnot(longSkinnyThing)
+
+//repl? declare a function, break down type
+//screen shots w/ annotations
+def myFunction(number: Int): String = { "The number is " + number.toString }
+myFunction: (number: Int)String
+
+myFunction(4)
+res0: String = The number is 4
+
+val myFunctionVal = { (number: Int) => "The number is " + number.toString }
+
+myFunctionVal(5)
+res0: String = The number is 5
+
+val sayHello = { (number: Int, name: String) => "Hello, " + name + "! I like the number " + number.toString }
+sayHello: (Int, String) => String = <function2>
+
+sayHello(4, "Kelsey")
+res2: String = Hello, Kelsey! I like the number 4
+
+//ok, we could put that in a data structure (meh)
+//gloss over returning from a function (partial application)
+//pass into another function! THE MEAT
+Higher-Order Functions
+
+//for loop
+def makePies: List[String] = {
+	val fruits = List("apple", "cherry", "peach")
+	val pies = new scala.collection.mutable.ListBuffer[String]
+	for (i <- 0 until fruits.length) {
+		pies += (fruits(i) + " pie")
+	}
+	pies.result
+}
+
+def makeJuice: List[String] = {
+	val fruits = List("apple", "cherry", "peach")
+	val juices = new scala.collection.mutable.ListBuffer[String]
+	for (i <- 0 until fruits.length) {
+		pies += (fruits(i) + " juice")
+	}
+	juices.result
+}
+
+//what are we abstracting away?
+(list of parameters' types) => return type
+(String) => String
+def map(fruitList:List[String], theFunction: (String) => String): List[String]
+
+
+def map(fruits:List[String], theFunction: (String) => String): List[String] = {
+    val newList = new scala.collection.mutable.ListBuffer[String]
+	for (i <- 0 until fruits.length) {
+		newList += theFunction(fruits(i))
+	}	
+	newList.result		
+}
+
+val makePie = { (fruit: String) => fruit + " pie" }
+val makeJuice = { (fruit: String) => fruit + " juice" }
+val fruits = List("apple", "cherry", "peach")
+
+map(fruits, makePie) //List("apple pie", "cherry pie", "peach pie")
+map(fruits, makeJuice) //List("apple juice", "cherry juice", "peach juice")
+
+
+//what if we want to do something else
+def measureFruit: List[Int] = {
+	val fruits = List("apple", "cherry", "peach")
+	val lengths = new scala.collection.mutable.ListBuffer[Int]
+	for (i <- 0 until fruits.length) {
+		lengths += fruits(i).length
+	}
+	lengths.result
+}
+
+//want to go from 
+
+(String) => String
+def map(fruitList:List[String], theFunction: (String) => String): List[String]
+
+(String) => Int
+def map(fruitList:List[String], theFunction: (String) => Int): List[Int]
+
+
+//want to be more generic? could generify type of list, or define on a list parent class
+def map[Input, Output](theList:List[Input], theFunction: (Input) => Output): List[Output] = {
+    val newList = new scala.collection.mutable.ListBuffer[Output]
+	for (i <- 0 until theList.length) {
+		newList += theFunction(theList(i))
+	}	
+	newList.result		
+}
+
+val measureFruit = { (fruit: String) => fruit.length }
+
+scala> map(fruitList, measureFruit)
+res1: List[Int] = List(6, 5, 6)
+
+//actual in scala:
+fruitList.map(makePies)
+fruitList.map(measureFruit)
+
+//exercise break: change /getCloud to print out all the clouds, in upper case
+
+
+//anonymous functions (compare to anonymous String param)
+
+//fold/reduce
+//sortBy
+
+//chart of some good first-class functions
 
 section.intro.green(data-background="#134")
   h1 Now that you're 
