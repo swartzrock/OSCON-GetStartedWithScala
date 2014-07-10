@@ -1,81 +1,76 @@
 
 section
-  h1 Exercises
+  h3 Exercises
   h3 Here We Go
 
 
 section
-  h1 Does this work?
-  ol 
-    li Get the project
+  h3 Does this work?
+  ol
+    li Download the project
+      p http://www.bks2.com/scala-tutorial.tar.bz2
+    li Run "./sbt compile" to build it
+    li Run "./sbt container:start" to start the server
+    li Visit http://localhost:8080/
+    li Success!
+
+section(data-state="h_exercises")
+  style.
+    .h_exercises header:after{ content: "Exercises"; }
+  h3 Types and Values
+  ol
+    li Store your own name as a value
+    li Store the name of the person sitting next to you as a value
+    li Store your names + your neighbors' names in a list
+    li Ask two people sitting near you what age they started programming
+    li Find the average age that all of you started programming, without rounding
+    li Create a map of name to age
+
+section(data-state="h_exercises")
+  h3 Expressions
+  ol
+    li Open the sample project in IntelliJ
       ol
-        li http://www.bks2.com/scala-tutorial.tar.bz2
         li 
-          code ./sbt compile
-    li in the unzipped project's folder
-      ol
-       li 
-         code ./sbt 
-         br
-         code container:start
-    li visit localhost:8080/
-    li Yay!
-
-section
-  h1 Types and Values
-  ol
-   li Store your own name as a value
-   li Store the name of the person sitting next to you as a value
-   li Store your names + your neighbors' names in a list
-   li Ask two people sitting near you what age they started programming
-   li Find the average age that all of you started programming, without rounding
-   li Create a map of name to age
-
-section
-  h1 Expressions
-  ol
-   li Open the sample project in IntelliJ
-     ol
-       li 
-         | Run 
-         code container:start 
-         | to start the server if you haven't already
-       li Run
-         code  ~ ;copy-resources;aux-compile 
-         | to automatically recompile & restart when you make changes
+          | Run 
+          code container:start 
+          | to start the server if you haven't already
+        li Run
+          code  ~ ;copy-resources;aux-compile 
+          | to automatically recompile & restart when you make changes
     li Confirm this is working by changing line 19 of 
-     code   MyScalatraServlet 
-     | to hello something else & verifying localhost:8080/ has changed in the browser
+      code   MyScalatraServlet 
+      | to hello something else & verifying localhost:8080/ has changed in the browser
 
-section
-  h1 Expressions
+section(data-state="h_exercises")
+  h3 Expressions
   ol
-   li Modify the /smalltalk endpoint to return the results of the if/else statement, and back
-     ol
-       li Hint: multiline comments in scala are wrapped in 
-       code /* comment */
-   li Modify the /smalltalk endpoint code to operate on an integer representing the temperature
-   li Extra credit: Scalatra's 
+    li Modify the /smalltalk endpoint to return the results of the if/else statement, and back
+      ol
+        li Hint: multiline comments in scala are wrapped in 
+        code /* comment */
+        li Modify the /smalltalk endpoint code to operate on an integer representing the temperature
+        li Extra credit: Scalatra's 
     code multiparams 
     | returns a List of params. Write an endpoint in the form 
     br
     code http://localhost:8080/highlow?temps=45,70
     ol
-     li Use pattern matching with value binding to extract the high & low temp and return them in a sentence
-     li Use guards to validate the data 
+       li Use pattern matching with value binding to extract the high & low temp and return them in a sentence
+       li Use guards to validate the data 
 
-section
-  h1 Expressions
+section(data-state="h_exercises")
+  h3 Expressions
   ol
     li Complete the 
-        code convertToCelsius 
-        | endpoint
+      code convertToCelsius 
+      | endpoint
     li Refactor your code from the 
-     code /smalltalk 
-     | endpoint to call a function
+      code /smalltalk 
+      | endpoint to call a function
 
-section
-  h1 Classes
+section(data-state="h_exercises")
+  h3 Classes
   ol
     li Add a field of your choosing to the 
       code Cloud 
@@ -86,31 +81,31 @@ section
       code convertFeetToMeters 
       | method
     li Add a method to 
-     code Cloud 
-     | that uses the object's method to return the cloud's height in meters
+      code Cloud 
+      | that uses the object's method to return the cloud's height in meters
 
-section
-  h1 Functions
+section(data-state="h_exercises")
+  h3 Functions
   ol 
-   li Change 
-    code /clouds 
-    | to print out all the cloud names in uppercase using .map
-   li 
-    ol
-     li Hint: 
-       code .toUpperCase()
+    li Change 
+     code /clouds 
+     | to print out all the cloud names in uppercase using .map
+    li 
+     ol
+      li Hint: 
+        code .toUpperCase()
 
-section
-  h1 Functions
+section(data-state="h_exercises")
+  h3 Functions
   ol 
-   li Implement 
-     code /averageTemp/:city
-   li Implement 
-     code /maxTemp 
-     | (maximum temperature for a given date)
-
-section
-  h1 Putting it all together
+    li Implement 
+      code /averageTemp/:city
+    li Implement 
+      code /maxTemp 
+      | (maximum temperature for a given date)
+ 
+section(data-state="h_exercises")
+  h3 Putting it all together
   ol 
     li Grab the expanded weather file at http://bit.ly/1mkDLkI and replace weather.csv 
     li Come up with an query of your choice on the weather data and implement an endpoint for it
@@ -123,5 +118,5 @@ section
     li Add a field to the WeatherRecord representing inches of rainfall. Modify WeatherService to handle both csv entries with the rainfall field and without
 
 section
-  h1 THE END
-  h3 THanks!
+  h4 THE END
+  h3 Thanks!
