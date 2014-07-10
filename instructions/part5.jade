@@ -266,26 +266,111 @@ section(data-state="h_anonfuncs").left
   br
   br
   <div class="fragment">
-  code(data-trim, contenteditable) val makePie = {(fruit: String) => fruit + " pie"}
+  code(data-trim, contenteditable) val makePie = { (fruit: String) => fruit + " pie"}
   br
   code(data-trim, contenteditable) fruitList.map(makePie)
   br
   |<center>vs.</center>
   br
-  code(data-trim, contenteditable) fruitList.map({(fruit: String) => fruit + " pie"})
+  code(data-trim, contenteditable) fruitList.map{ (fruit: String) => fruit + " pie" }
   </div>
+
+section(data-state="h_foldLeft").left
+  style.
+    .h_foldLeft header:after{ content: "foldLeft"; }
+   pre
+    code(data-trim, contenteditable).
+      val fruits = List("apple", "cherry", "rhubarb")
+      val totalLength = fruits.foldLeft(0) { (total, f) =>
+         total + f.length
+      }
+
+      val totalLength = 0 + "apple".length 
+                          + "cherry".length 
+                          + "rhubarb".length
 
 section(data-state="h_reduce").left
   style.
     .h_reduce header:after{ content: "reduce"; }
+   pre
+    code(data-trim, contenteditable).
+      val fruits = List("apple", "cherry", "rhubarb")
+      val listAllFruits = fruits.foldLeft("") { (soFar, f) =>
+         soFar + ", and " + f 
+      }
 
-section(data-state="h_filter").left
-  style.
-    .h_filter header:after{ content: "filter"; }
+   pre.fragment
+    code(data-trim, contenteditable).
+     //listAllFruits: String = , and apple, and cherry,...
+
+   pre.fragment
+    code(data-trim, contenteditable).
+      val fruits = List("apple", "cherry", "rhubarb")
+      val listAllFruits = fruits.reduce { (soFar, f) =>
+         soFar + ", and " + f 
+      }
+      //listAllFruits: String = apple, and cherry, and...
+
 
 section(data-state="h_sortWith").left
   style.
     .h_sortWith header:after{ content: "sortWith"; }
+   pre
+    code(data-trim, contenteditable).
+       val fruits = List("apple", 
+                         "pear", 
+                         "orange", 
+                         "peach", 
+                         "honeydew")
+       fruits.sortWith{ (fruitA: String, fruitB: String) => 
+              fruitA.length > fruitB.length }
+          //List[Fruit] = List(honeydew, orange, apple, peach, pear)
+
+
+section(data-state="h_filter").left
+  style.
+    .h_filter header:after{ content: "filter"; }
+   pre
+    code(data-trim, contenteditable).
+       val fruits = List("apple", 
+                         "pear", 
+                         "orange", 
+                         "peach", 
+                         "honeydew")
+       fruits.filter{ (fruit: String) => isDelicious(fruit) }
+          //List[Fruit] = List(apple, orange, peach)
+
+section(data-state="h_morefuncs", style="text-align: center;")
+  style .h_morefuncs header:after{content:"Fun with predicates"}
+  br
+  table
+    tr
+      th Name 
+      th Signature
+    tr
+      td count
+      td 
+        code (p: (A) ⇒ Boolean): Int
+    tr
+      td exists
+      td 
+        code (p: (A) ⇒ Boolean): Boolean
+    tr
+      td filterNot
+      td 
+        code (p: (A) ⇒ Boolean): List[A]  
+    tr
+      td indexWhere
+      td 
+        code (p: (A) ⇒ Boolean): Int  
+    tr
+      td partition
+      td 
+        code (p: (A) ⇒ Boolean): (List[A], List[A]) 
+    tr
+      td takeWhile
+      td 
+        code (p: (A) ⇒ Boolean): List[A]
 
 section.intro.darkBlue(data-background="#ee3")
   h1 How about we 
