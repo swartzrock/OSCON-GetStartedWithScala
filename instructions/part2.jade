@@ -65,6 +65,24 @@ section(data-state="h_strings")
       
 
 
+section(data-state="h_multiline_strings")
+  style.
+    .h_multiline_strings header:after{ content: "Multiline Strings"; }
+  pre
+    code(data-trim, contenteditable).
+      """ 
+          Hello, 
+
+           World
+
+      """
+    br  
+    br  
+    code(data-trim, contenteditable).fragment.
+      html.replaceAll("""&lt;/?[^&gt;]+&gt;""")
+      
+
+
 
 section(data-state="h_moretypes").left
   style.
