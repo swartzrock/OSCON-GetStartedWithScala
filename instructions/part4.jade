@@ -13,8 +13,7 @@ section.intro.red(data-background="#125")
     
 section.intro.green(data-background="#136")
   h1 <b>Function</b>
-  p.white(style="padding-top: 0;") defn: An expression with a name & input parameters.
-  p.white.fragment and maybe generics
+  p.white(style="padding-top: 0;") defn: An expression with a name & input parameters
 
 
 section(data-state="h_function")
@@ -52,7 +51,7 @@ section(data-state="h_function")
 section(data-state="h_function")
   pre
     code(data-trim, contenteditable).syntax.
-      def name: type = expression
+      def name[: type] = expression
     br
     br
     br
@@ -62,9 +61,41 @@ section(data-state="h_function")
 
       println(message)
 
+
+
+
+section.intro.green(data-background="#134")
+  h1 Are Function Parameters <b>Optional?</b>
+
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      def greeting = "Hello, World"
+      val message = greeting + ", here I am!"
+
+    br
+    code(data-trim, contenteditable).fragment.
+      def greeting() = "Hello, World"
+      val message = greeting() + ", here I am!"
+
+
+
+ 
+section(data-state="h_function")
+  pre
+    code(data-trim, contenteditable).syntax.
+      def name(name1: type1[, ]) = expression
+    br
+    br
+    code(data-trim, contenteditable).
+      def hello(name: String) = "Hello, " + name
+      val message = hello("World")
  
 
-section(data-state="h_function")
+
+section
   pre
     code(data-trim, contenteditable).
       val now = System.currentTimeMillis
@@ -73,7 +104,7 @@ section(data-state="h_function")
 
  
 
-section(data-state="h_function")
+section
   pre
     code(data-trim, contenteditable).
       {
@@ -84,7 +115,7 @@ section(data-state="h_function")
 
  
 
-section(data-state="h_function")
+section
   pre
     code(data-trim, contenteditable).
       def numSeconds: String = {
@@ -92,62 +123,51 @@ section(data-state="h_function")
         val seconds = now / 1000
         "Num seconds since 1970 = " + seconds
       }
-
- 
-
-section(data-state="h_function")
-  pre
-    code(data-trim, contenteditable).
-      def numSeconds: String = {
-        val now = System.currentTimeMillis
-        val seconds = now / 1000
-        "Num seconds since 1970 = " + seconds
-      }
-
+    br
+    code(data-trim, contenteditable).fragment.
       val since1970: String = numSeconds()
 
- 
 
-section(data-state="h_function")
+section
+  pre
+    code(data-trim, contenteditable).
+      val since1970: String = {
+        val now = System.currentTimeMillis
+        val seconds = now / 1000
+        "Num seconds since 1970 = " + seconds
+      }
+
+
+section
   pre
     code(data-trim, contenteditable).
       def numSeconds(then: Long): String = {
         val now = System.currentTimeMillis
         val seconds = (now - then) / 1000
-        "Num seconds since " + then.toString + " = " + seconds
+        "Num seconds since then = " + seconds
       }
+    br
+    code(data-trim, contenteditable).fragment.
+      val sinceMay2014 = numSeconds(1400000000000L)
 
- 
 
-section(data-state="h_function")
-  pre
-    code(data-trim, contenteditable).
-      def numSeconds(then: Long): String = {
-        val now = System.currentTimeMillis
-        val seconds = (now - then) / 1000
-        "Num seconds since " + then.toString + " = " + seconds
-      }
-
-      val thisYear: String = numSeconds(1388534400)
-
- 
-
-section(data-state="h_function")
-  pre
-    code(data-trim, contenteditable).
-      def numSeconds(then: Long, description: String): String = {
-        val now = System.currentTimeMillis
-        val seconds = (now - then) / 1000
-        "Num seconds since " + description + " = " + seconds
-      }
-
-      val thisYear: String = 
-          numSeconds(1388534400, "the beginning of this year")
- 
+section.intro.green(data-background="#134")
+  h1 Functions Are <b>Expressions</b>
+  p.white(style="padding-top: 0;").fragment with names
+  p.white(style="padding-top: 0;").fragment and inputs
 
 
 
+section.intro.green(data-background="#134")
+  h1 Now You Know 
+    b Functions
 
+
+
+section.intro.darkBlue(data-background="#ee3")
+  h1 How about we 
+    b try out
+    |  your new skills?
 
 
 
