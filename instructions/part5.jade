@@ -5,180 +5,289 @@ section.intro.green(data-background="#134")
     | functional 
 
 //what is a function and why do we care? lil philosophical detour
-favorite picture!!!!
-A function is a relation between values where each of its input values gives back exactly one output value
-//purity: the box is closed--nothing goes into it at any point after the input, nothing outside is affected
+//purity
+section.intro.green(data-background="#136")
+  h1 <b>Functions!</b>
+  <div class="fragment">
+  img(src="instruction_images/function_machine_f.png" height=350)
+  br
+  p(style="color: white;") A function is a relation between values where each of its input values gives back exactly one output value
+  </div>
 
-//mention multiple inputs
-//limits are not enforced by the language
-	<h2>Some Functions</h2>
-				<ul>
-					<li>Math.sqrt(x)</li>
-					<li>Collections.max(list)</li>
-					<li>Arrays.copyOf(original, newLength)</li>
-					<li>String.valueOf(anInt)</li>
+//multiple limits, not enforced by language
+section(data-state="h_functions").left
+  style.
+    .h_functions header:after{ content: "Some Functions"; }
+  code(data-trim, contenteditable) Math.sqrt(x)
+  br
+  br
+  code(data-trim, contenteditable) Collections.max(list)
+  br
+  br
+  code(data-trim, contenteditable) Arrays.copyOf(original, newLength)
+  br
+  br
+  code(data-trim, contenteditable) String.valueOf(anInt)
 
 //unit testing, debugging, correctness
-Deterministic
-You will always get the same result if you run them with the same data.
+section.intro.red(data-background="#125")
+  h1.intro Functions are
+  h1 
+    b Deterministic
+  p(style="color: white;").fragment You will always get the same result if you run them with the same data.
 
-//define referential transparency
+//referential transparency -- about the box being opaque
 //readability, reuse, refactoring
-Encapsulated.
-"With a referentially transparent function, the interface-level activity is all one needs to know about its behavior."
+section.intro.red(data-background="#125")
+  h1.intro Functions are
+  h1 
+    b Encapsulated
+  p(style="color: white;").fragment The interface is all you need to know about a function's behavior.
 
-//fancy way of saying order doesn't matter
 //parallelization, concurrency, lazy evaluation
+//readability, reuse, refactoring
+section.intro.red(data-background="#125")
+  h1.intro Functions are
+  h1 
+    b Commutative
+  p(style="color: white;").fragment The order of evaluation doesn't matter.
+
 //do we have to do the first two lines in the same order?
 //do the same computers have to do them?
 //when do they have to be done
-Commutative
-val firstThing = doOneThing()
-val secondThing = doAnotherThing()
+section
+  pre
+    code(data-trim, contenteditable).
+      val firstThing = doOneThing()
+      val secondThing = doAnotherThing()
 
-val thirdThing = doTheLastThing(firstThing, secondThing)
+      val thirdThing = doTheLastThing(firstThing, secondThing)
+    br
 
 //this gets us most of the way there with the black boxing
 //great for concurrency (inherently threadsafe), great for rollback of data, makes lots of work simpler
-Immutable data
-Once an object is created, it cannot be changed.
-If you need to change an object, make your own copy.
-String s1 = "san dimas high school football rules"
-String s2 = s1.toUpperCase
+section.intro.red(data-background="#125")
+  h1.intro Data is
+  h1 
+    b Immutable
+  p(style="color: white;").fragment 
+    | Once an object is created, it cannot be changed.
+    br
+    | If you need to change an object, make your own copy.
 
-println("string 1: " + s1);
-println("string 2: " + s2);
+section
+  pre
+    code(data-trim, contenteditable).
+      String s1 = "san dimas high school football rules"
+      String s2 = s1.toUpperCase
 
-//try to build everything out of them
-Functions are First-Class
+      println("string 2: " + s2);
+      println("string 1: " + s1);
 
-// what is a first class object? assigned to vars, put in a data structure,
-// returned from a function, passed as a parameter
-val longSkinnyThing: String = "this is a string"
-val listOfThem: List[String] = List("yarn","twine","thread")
-val newLongSkinnyThing: String = spinFromFiber("wool")
-tieInAKnot(longSkinnyThing)
+section.intro.green(data-background="#134")
+  h1.intro Functions are
+  h1 
+    b First-Class
 
-//repl? declare a function, break down type
-//screen shots w/ annotations
-def myFunction(number: Int): String = { "The number is " + number.toString }
-myFunction: (number: Int)String
+section(data-state="h_firstclass").left
+  style.
+    .h_firstclass header:after{ content: "First-Class Functions"; }
+  <div class="fragment">
+  pre
+    code(data-trim, contenteditable).
+      val longSkinnyThing: String = "this is a string"
 
-myFunction(4)
-res0: String = The number is 4
+      val listOfThem: List[String] = 
+          List("yarn","twine","thread")
 
-val myFunctionVal = { (number: Int) => "The number is " + number.toString }
+      val newLongSkinnyThing: String = 
+          spinFromFiber("wool")
 
-myFunctionVal(5)
-res0: String = The number is 5
+      tieInAKnot(longSkinnyThing)
+  </div>
 
-val sayHello = { (number: Int, name: String) => "Hello, " + name + "! I like the number " + number.toString }
-sayHello: (Int, String) => String = <function2>
-
-sayHello(4, "Kelsey")
-res2: String = Hello, Kelsey! I like the number 4
+//repl time
+section.intro.green(data-background="#134")
+  h1 
+    b Functions as Values
 
 //ok, we could put that in a data structure (meh)
 //gloss over returning from a function (partial application)
 //pass into another function! THE MEAT
-Higher-Order Functions
-
-//for loop
-def makePies: List[String] = {
-	val fruits = List("apple", "cherry", "peach")
-	val pies = new scala.collection.mutable.ListBuffer[String]
-	for (i <- 0 until fruits.length) {
-		pies += (fruits(i) + " pie")
-	}
-	pies.result
-}
-
-def makeJuice: List[String] = {
-	val fruits = List("apple", "cherry", "peach")
-	val juices = new scala.collection.mutable.ListBuffer[String]
-	for (i <- 0 until fruits.length) {
-		pies += (fruits(i) + " juice")
-	}
-	juices.result
-}
-
-//what are we abstracting away?
-(list of parameters' types) => return type
-(String) => String
-def map(fruitList:List[String], theFunction: (String) => String): List[String]
+section(data-state="h_firstclass").left
+  style.
+    .h_firstclass header:after{ content: "First-Class Functions"; }
+  <div class="fragment">
+  pre
+    code(data-trim, contenteditable).
+      def makePies: List[String] = {
+        val fruits = List("apple", "cherry", "rhubarb")
+        val pies = 
+          new scala.collection.mutable.ListBuffer[String]
+        for (i <- 0 until fruits.length) {
+            pies += (fruits(i) + " pie")
+        }
+        pies.result
+      }
+  </div>
 
 
-def map(fruits:List[String], theFunction: (String) => String): List[String] = {
-    val newList = new scala.collection.mutable.ListBuffer[String]
-	for (i <- 0 until fruits.length) {
-		newList += theFunction(fruits(i))
-	}	
-	newList.result		
-}
+section(data-state="h_firstclass").left
+  style.
+    .h_firstclass header:after{ content: "First-Class Functions"; }
+  pre
+    code(data-trim, contenteditable).
+      def makeJuice: List[String] = {
+        val fruits = List("apple", "orange", "cranberry")
+        val juices = 
+          new scala.collection.mutable.ListBuffer[String]
+        for (i <- 0 until fruits.length) {
+            juices += (fruits(i) + " juice")
+        }
+        juices.result
+      }
 
-val makePie = { (fruit: String) => fruit + " pie" }
-val makeJuice = { (fruit: String) => fruit + " juice" }
-val fruits = List("apple", "cherry", "peach")
+section(data-state="h_firstclass").left
+  style.
+    .h_firstclass header:after{ content: "First-Class Functions"; }
+  code(data-trim, contenteditable) (list of parameters' types) => return type
+  br
+  br
+  code(data-trim, contenteditable).fragment (String) => String
+  br
+  br
+  code(data-trim, contenteditable).fragment 
+    | def map(fruitList:List[String], 
+    |          theFunction: (String) => String): List[String]
 
-map(fruits, makePie) //List("apple pie", "cherry pie", "peach pie")
-map(fruits, makeJuice) //List("apple juice", "cherry juice", "peach juice")
 
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def map(fruits: List[String], 
+          theFunction: (String) => String): 
+          List[String] = {
+          val newList = 
+            new scala.collection.mutable.ListBuffer[String]
+          for (i <- 0 until fruits.length) {
+              newList += theFunction(fruits(i))
+          }   
+          newList.result      
+      }
 
-//what if we want to do something else
-def measureFruit: List[Int] = {
-	val fruits = List("apple", "cherry", "peach")
-	val lengths = new scala.collection.mutable.ListBuffer[Int]
-	for (i <- 0 until fruits.length) {
-		lengths += fruits(i).length
-	}
-	lengths.result
-}
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      val makePie = { (fruit: String) => fruit + " pie" }
+      val makeJuice = { (fruit: String) => fruit + " juice" }
+      val fruits = List("apple", "cherry", "peach")
 
-//want to go from 
+      map(fruits, makePie) 
+        //List("apple pie", "cherry pie", "peach pie")
+      map(fruits, makeJuice) 
+        //List("apple juice", "cherry juice", "peach juice")
 
-(String) => String
-def map(fruitList:List[String], theFunction: (String) => String): List[String]
-
-(String) => Int
-def map(fruitList:List[String], theFunction: (String) => Int): List[Int]
-
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def measureFruit: List[Int] = {
+        val fruits = List("apple", "orange", "cranberry")
+        val lengths = 
+          new scala.collection.mutable.ListBuffer[Int]
+        for (i <- 0 until fruits.length) {
+            lengths += fruits(i).length
+        }
+        lengths.result
+      }
 
 //want to be more generic? could generify type of list, or define on a list parent class
-def map[Input, Output](theList:List[Input], theFunction: (Input) => Output): List[Output] = {
-    val newList = new scala.collection.mutable.ListBuffer[Output]
-	for (i <- 0 until theList.length) {
-		newList += theFunction(theList(i))
-	}	
-	newList.result		
-}
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def map[I, O](inputList: List[I], 
+          theFunction: (I) => O): 
+          List[O] = {
+          val outputList = 
+            new scala.collection.mutable.ListBuffer[O]
+          for (i <- 0 until inputList.length) {
+              outputList += theFunction(inputList(i))
+          }   
+          outputList.result      
+      }
 
-val measureFruit = { (fruit: String) => fruit.length }
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      val measureFruit = { (fruit: String) => fruit.length }
 
-scala> map(fruitList, measureFruit)
-res1: List[Int] = List(6, 5, 6)
+      scala> map(fruitList, measureFruit)
+      res1: List[Int] = List(6, 5, 6)
 
-//actual in scala:
-fruitList.map(makePies)
-fruitList.map(measureFruit)
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      abstract class Collection[A] {
+          ...
+          def map(theFunction: (A) => B): Collection[B] = 
+          ...
+      }
+
+      fruitList.map(makePies)
+      fruitList.map(measureFruit)
 
 //exercise break: change /getCloud to print out all the clouds, in upper case
+section.intro.darkBlue(data-background="#ee3")
+  h1 exercise break
+    |!!!
 
+//have them convert their own
+section(data-state="h_anonfuncs").left
+  style.
+    .h_anonfuncs header:after{ content: "Anonymous Functions"; }
+  code(data-trim, contenteditable) val myString = "this is my string"
+  br
+  code(data-trim, contenteditable) println(myString)
+  br
+  |<center>vs.</center>
+  br
+  code(data-trim, contenteditable) println("this is my string")
+  br
+  br
+  <div class="fragment">
+  code(data-trim, contenteditable) val makePie = {(fruit: String) => fruit + " pie"}
+  br
+  code(data-trim, contenteditable) fruitList.map(makePie)
+  br
+  |<center>vs.</center>
+  br
+  code(data-trim, contenteditable) fruitList.map({(fruit: String) => fruit + " pie"})
+  </div>
 
-//anonymous functions (compare to anonymous String param)
+section(data-state="h_reduce").left
+  style.
+    .h_reduce header:after{ content: "reduce"; }
 
-//fold/reduce
-//sortBy
+section(data-state="h_filter").left
+  style.
+    .h_filter header:after{ content: "filter"; }
 
-//chart of some good first-class functions
-
-section.intro.green(data-background="#134")
-  h1 Now that you're 
-    b Functional
-
+section(data-state="h_sortWith").left
+  style.
+    .h_sortWith header:after{ content: "sortWith"; }
 
 section.intro.darkBlue(data-background="#ee3")
   h1 How about we 
     b try out
     |  your new skills?
-
-
