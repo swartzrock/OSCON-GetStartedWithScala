@@ -32,6 +32,12 @@ html
 
           
     script(src='lib/js/head.min.js')
+    
+    script(src='js/jquery.min.js')
+    script.
+      // Fix Jade's contenteditable attributes
+      jQuery('code[contenteditable=contenteditable]').attr('contenteditable','')
+
     script(src='js/reveal.min.js')
     script.
       // Full list of configuration options available here:
