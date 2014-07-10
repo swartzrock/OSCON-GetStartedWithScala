@@ -5,12 +5,120 @@ section
 
 
 section
-  h1 1 - Does this work?
+  h1 Does this work?
   ol 
-    li Hello OSCON
+    li Get the project
+      ol
+        li http://www.bks2.com/scala-tutorial.tar.bz2
+        li 
+          code ./sbt compile
+    li in the unzipped project's folder
+      ol
+       li 
+         code ./sbt 
+         br
+         code container:start
+    li visit localhost:8080/
+    li Yay!
 
 section
-  h2 Now get busy
+  h1 Types and Values
+  ol
+   li Store your own name as a value
+   li Store the name of the person sitting next to you as a value
+   li Store your names + your neighbors' names in a list
+   li Ask two people sitting near you what age they started programming
+   li Find the average age that all of you started programming, without rounding
+
+section
+  h1 Expressions
+  ol
+   li Open the sample project in IntelliJ
+     ol
+       li 
+         | Run 
+         code container:start 
+         | to start the server if you haven't already
+       li Run
+         code  ~ ;copy-resources;aux-compile 
+         | to automatically recompile & restart when you make changes
+    li Confirm this is working by changing line 19 of 
+     code   MyScalatraServlet 
+     | to hello something else & verifying localhost:8080/ has changed in the browser
+
+section
+  h1 Expressions
+  ol
+   li Modify the /smalltalk endpoint to return the results of the if/else statement, and back
+     ol
+       li Hint: multiline comments in scala are wrapped in 
+       code /* comment */
+   li Modify the /smalltalk endpoint code to operate on an integer representing the temperature
+   li Extra credit: Scalatra's 
+    code multiparams 
+    | returns a List of params. Write an endpoint in the form 
+    br
+    code http://localhost:8080/highlow?temps=45,70
+    ol
+     li Use pattern matching with value binding to extract the high & low temp and return them in a sentence
+     li Use guards to validate the data 
+
+section
+  h1 Expressions
+  ol
+    li Complete the 
+        code convertToCelsius 
+        | endpoint
+    li Refactor your code from the 
+     code /smalltalk 
+     | endpoint to call a function
+
+section
+  h1 Classes
+  ol
+    li Add a field of your choosing to the 
+      code Cloud 
+      | case class
+    li Create an object outside of 
+      code MyScalatraServlet 
+      | with a 
+      code convertFeetToMeters 
+      | method
+    li Add a method to 
+     code Cloud 
+     | that uses the object's method to return the cloud's height in meters
+
+section
+  h1 Functions
+  ol 
+   li Change 
+    code /clouds 
+    | to print out all the cloud names in uppercase using .map
+   li 
+    ol
+     li Hint: 
+       code .toUpperCase()
+
+section
+  h1 Functions
+  ol 
+   li Implement 
+     code /averageTemp/:city
+   li Implement 
+     code /maxTemp 
+     | (maximum temperature for a given date)
+
+section
+  h1 Putting it all together
+  ol 
+    li Come up with an query of your choice on the weather data and implement an endpoint for it
+    ol
+      li Ideas:
+        ol
+          li Standard deviation of high temps for a city
+          li Average range of temperature
+          li Use a simple linear model to forecast tomorrow's weather
+    li Add a field to the WeatherRecord representing inches of rainfall. Modify WeatherService to handle both csv entries with the rainfall field and without
 
 section
   h1 THE END
