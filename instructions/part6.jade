@@ -4,12 +4,287 @@ section.intro.green(data-background="#134")
     b Classy 
 
 
-// OO content goes here
+    
+section.intro.red(data-background="#125")
+  h1 Scala is 
+    b Object-Oriented
+
+
+    
+section.intro.green(data-background="#136")
+  h1 <b>Class</b>
+  p.white(style="padding-top: 0;") defn: A bunch of data plus functions which act on that data
+  p.white(style="padding-top: 0;").fragment ok, <i>methods</i> which act on that data
+
+
+section(data-state="h_class")
+  style.
+    .h_class header:after{ content: "Syntax: Classes"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      class name { 
+        expressions,
+        values &
+        methods
+      }
+    br
+    br
+    code(data-trim, contenteditable).fragment.syntax.
+      new name()
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      class User { 
+        val name: String = "Yubaba"
+        def greet = "Hello from " + name
+      }
+
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val u = new User()
+      println( u.greet )
+      println( "name = " + u.name )
+
+
+    
+section.intro.green(data-background="#136")
+  h1 <b>Class</b>
+  p.white(style="padding-top: 0;") defn: A bunch of data plus functions which act on that data
+  p.white(style="padding-top: 0;") ok, <i>methods</i> which act on that data
+  p.white(style="padding-top: 0;").fragment ok, the data may be passed as <i>parameters</i>
+
+
+
+
+section(data-state="h_class")
+  pre
+    code(data-trim, contenteditable).syntax.
+      class name(name: type[, ...]) { 
+        expressions,
+        values &
+        methods
+      }
+    br
+    br
+    code(data-trim, contenteditable).fragment.syntax.
+      new name(value)
+
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      class User(n: String) { 
+        val name: String = n
+        def greet = "Hello from " + name
+      }
+
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val u = new User("Zeniba")
+      println( u.greet )
+      println( "name = " + u.name )
+
+
+
+section(data-state="h_class")
+  pre
+    code(data-trim, contenteditable).syntax.
+      class name(val name: type[, ...]) { 
+        expressions,
+        values &
+        methods
+      }
+    br
+    br
+    code(data-trim, contenteditable).fragment.syntax.
+      new name(value)
+
+
+
+section
+  pre
+    code(data-trim, contenteditable).
+      class User(val name: String) { 
+        def greet = "Hello from " + name
+      }
+
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val u = new User("Zeniba")
+      println( u.greet )
+      println( "name = " + u.name )
+
+
 
 
 section.intro.green(data-background="#134")
-  h1 Now that you're 
-    b Classy
+  h1 
+    b Subtyping 
+    | & Polymorphism
+
+
+
+section(data-state="h_extending_class")
+  style.
+    .h_extending_class header:after{ content: "Syntax: Extending Classes"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      class child() extends parent() {} 
+
+
+      class child() extends parent() {
+
+        def method {}
+
+        override def method { super.method() }
+
+      } 
+
+      
+
+section(data-state="h_extending_class")
+  pre
+    code(data-trim, contenteditable).
+      class A { 
+        def hi = "Hi from A" 
+      }
+
+      new A().hi // Hi from A
+    br
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      class B extends A { 
+        override def hi = { "B says " + super.hi } 
+      }
+
+      new B().hi // B says Hi from A
+
+
+
+
+section.intro.green(data-background="#134")
+  h1 
+    | What's better than 
+    b Classes?
+
+
+section.intro.red(data-background="#125")
+  h1  
+    b Case Classes
+
+
+    
+section.intro.green(data-background="#136")
+  h1 <b>Case Class</b>
+  p.white(style="padding-top: 0;") defn: A class with special features for holding data
+  p.white(style="padding-top: 0;").fragment where class parameters are automatically fields
+  p.white(style="padding-top: 0;").fragment and is easily printable
+  p.white(style="padding-top: 0;").fragment and comparable
+
+
+section(data-state="h_case_class")
+  style.
+    .h_extending_class header:after{ content: "Syntax: Case Classes"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      case class name() 
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      case class User(name: String)
+      val u = User("Hadrian")
+    br
+    code(data-trim, contenteditable).fragment.
+      println(u) // User(Hadrian)
+    br
+    code(data-trim, contenteditable).fragment.
+      u == User("Royce") // false
+
+
+
+section.intro.red(data-background="#125")
+  h1 It's Time For 
+    b Singleton's
+
+
+
+section
+  img(src="instruction_images/singleton-12yr.jpeg")
+
+    
+section.intro.green(data-background="#136")
+  h1 <b>Singleton</b>
+  p.white(style="padding-top: 0;").fragment defn: A class that may have zero or one instances
+
+
+section.intro.green(data-background="#136")
+  h1 <b>Object</b>
+  p.white(style="padding-top: 0;") defn: A class that may have zero or one instances
+
+
+
+
+section(data-state="h_objects")
+  style.
+    .h_extending_class header:after{ content: "Syntax: Objects"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      object name() 
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      object HtmlUtils {
+        def removeMarkup(input: String) = {
+          input.replaceAll("""&lt;/?\w[^&gt;]*&gt;""","")
+               .replaceAll("&lt;.*&gt;","")
+        }
+      }
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      HtmlUtils.removeMarkup( htmlText )
+
+
+
+
+section.intro.green(data-background="#134")
+  h1 
+    | We have covered 
+    b Classes
+
+
+section.intro.green(data-background="#134")
+  h1 
+    | and 
+    b Case Classes
+
+section.intro.green(data-background="#134")
+  h1 
+    | plus 
+    b Objects 
+
+
+
+section.intro.red(data-background="#125")
+  h1 It's Time For 
+    b Singleton's
+
+
+
+section.intro.green(data-background="#134")
+  h1  
+    b Wait! 
+    | I have a 
+    b much 
+    | better idea!
+
 
 
 section.intro.darkBlue(data-background="#ee3")
