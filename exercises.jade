@@ -9,12 +9,14 @@ section
   ol
     li Download the project
       p http://www.bks2.com/scala-tutorial.tar.bz2
-    li Run "./sbt compile" to build it
-    li Run "./sbt container:start" to start the server
+    li Delete "project/._plugins.sbt"
+    li Run "./sbt" to enter the SBT shell
+    li Run "compile" to compile the project
+    li Run "container:start" to start the server
     li Visit http://localhost:8080/
     li Success!
 
-section(data-state="h_exercises")
+section
   style.
     .h_exercises header:after{ content: "Exercises"; }
   h3 Types and Values
@@ -26,7 +28,7 @@ section(data-state="h_exercises")
     li Find the average age that all of you started programming, without rounding
     li Create a map of name to age
 
-section(data-state="h_exercises")
+section
   h3 Expressions
   ol
     li Open the sample project in IntelliJ
@@ -42,7 +44,7 @@ section(data-state="h_exercises")
       code   MyScalatraServlet 
       | to hello something else & verifying localhost:8080/ has changed in the browser
 
-section(data-state="h_exercises")
+section
   h3 Expressions
   ol
     li Modify the /smalltalk endpoint to return the results of the if/else statement, and back
@@ -59,7 +61,7 @@ section(data-state="h_exercises")
        li Use pattern matching with value binding to extract the high & low temp and return them in a sentence
        li Use guards to validate the data 
 
-section(data-state="h_exercises")
+section
   h3 Expressions
   ol
     li Complete the 
@@ -69,7 +71,7 @@ section(data-state="h_exercises")
       code /smalltalk 
       | endpoint to call a function
 
-section(data-state="h_exercises")
+section
   h3 Classes
   ol
     li Add a field of your choosing to the 
@@ -84,7 +86,7 @@ section(data-state="h_exercises")
       code Cloud 
       | that uses the object's method to return the cloud's height in meters
 
-section(data-state="h_exercises")
+section
   h3 Functions
   ol 
     li Change 
@@ -95,7 +97,7 @@ section(data-state="h_exercises")
       li Hint: 
         code .toUpperCase()
 
-section(data-state="h_exercises")
+section
   h3 Functions
   ol 
     li Implement 
@@ -104,7 +106,7 @@ section(data-state="h_exercises")
       code /maxTemp 
       | (maximum temperature for a given date)
  
-section(data-state="h_exercises")
+section
   h3 Putting it all together
   ol 
     li Grab the expanded weather file at http://bit.ly/1mkDLkI and replace weather.csv 
