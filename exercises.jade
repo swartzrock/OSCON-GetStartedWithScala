@@ -20,10 +20,10 @@ section
   ol
     li Store your own name as a value
     li Store the name of the person sitting next to you as a value
-    li Store your names + your neighbors' names in a list
+    li Store your name + your neighbors' names in a list
     li Ask two people sitting near you what age they started programming
     li Find the average age that all of you started programming, without rounding
-    li Create a map of name to age
+    li Create a map of name to age they started programming
 
 section
   h3 Expressions
@@ -42,6 +42,8 @@ section
     li Modify the 
       code /smalltalk 
       | endpoint code to operate on an integer representing the temperature
+    ul
+        li Use .toInt to convert the parameter to an int
     li Add a default to 
       code /moreSmalltalk 
       | that returns "Yup, sure is FOO" where FOO is the value of the weather param
@@ -55,7 +57,7 @@ section
   h3 Functions
   ol
     li Complete the 
-      code convertToF
+      code convertToF 
       | endpoint
     li Refactor your code from the 
       code /smalltalk 
@@ -68,7 +70,7 @@ section
       code Cloud 
       | case class
     li Create an object outside of 
-      code MyScalatraServlet 
+      code TutorialApp  
       | with a 
       code convertFeetToMeters 
       | method
