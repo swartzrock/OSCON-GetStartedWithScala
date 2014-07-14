@@ -10,40 +10,30 @@ section.intro.green(data-background="#134")
     | with Scala
 
 
-
+section
+  pre
+    code(data-trim, contenteditable).syntax > sbt console
+  h3 Or
+  pre
+    code(data-trim, contenteditable).syntax > scala
+      
 
 section
-  h2 Run "scala"
-
-section
-  h2 println("Hello, Scala")
+  pre
+    code(data-trim, contenteditable).syntax println("Hello, Scala")
 
 
 section(data-background="instruction_images/repl_hello.png")
 
 
 section
-  h2 "Hello, Scala"
+  pre
+    code(data-trim, contenteditable).syntax "Hello, Scala"
+
 
 section(data-background="instruction_images/repl_hello_res0.png")
 
 section(data-background="instruction_images/repl_hello_res0_info.png")
-
-
-section.intro.green(data-background="#134")
-  h1  <b>Expressions</b> are valid commands
-
-
-section.intro.green(data-background="#136")
-  h1 <b>Expression</b>
-  p(style="color: white; padding-top: 0;") defn: A unit of code that returns a value <br>after it has been executed.
-  br
-  p(style="color: white; padding-top: 0;").fragment "Hello, Scala" &nbsp; &nbsp; 
-    span.fragment true &nbsp; &nbsp; &nbsp; 
-    span.fragment 23 + 42 / 2 
-    br
-    br
-    span.fragment loadUsersFromDatabase()
 
 
 
