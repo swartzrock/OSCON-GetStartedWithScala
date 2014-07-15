@@ -10,13 +10,27 @@ section.intro.green(data-background="#134")
     | with Scala
 
 
-section
-  pre
-    code(data-trim, contenteditable).syntax > sbt console
-  h3 Or
-  pre
-    code(data-trim, contenteditable).syntax > scala
-      
+
+section(data-state="h_shell")
+  style.
+    .h_shell header:after{ content: "Scala REPL and SBT Shell"; }
+  aside.notes a story of two shells. Note the different prompts
+  img(src="instruction_images/shell1.jpg")
+
+
+
+section(data-state="h_shell")
+  aside.notes Today we will launch the Scala repl as an internal console in SBT
+  img(src="instruction_images/shell2.jpg")
+
+
+
+section.intro.green(data-background="#134")
+  h1 Are we ready to 
+    br
+    b REPL ?
+
+
 
 section
   pre
