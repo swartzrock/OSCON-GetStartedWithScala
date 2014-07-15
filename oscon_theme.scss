@@ -43,6 +43,8 @@ $selectionColor: #fff;
 
 
 #body .reveal {
+
+
   pre { 
     box-shadow: none; 
     width: 200%; 
@@ -103,23 +105,23 @@ $introFont: Oswald;
     }
   }
   .green {
-    h1,h2 {  color: #9b7; 
+    h1,h2,h3,h4 {  color: #9b7; 
       b {  color: #ffa; } 
     }
   }
   .darkBlue {
-    h1,h2 {  color: #128; 
+    h1,h2,h3,h4 {  color: #128; 
       b {  color: #24a; } 
     }
   }
   .white {
     color: white;
-    h1,h2 {  color: white;
+    h1,h2,h3,h4 {  color: white;
       b {  color: white; } 
     }
   }
   .red {
-    h1,h2,h3 {  color: #a33; 
+    h1,h2,h3,h4 {  color: #a33; 
       b {  color: #e60; } 
     }
   }
