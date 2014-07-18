@@ -144,6 +144,10 @@ $introFont: Oswald;
     font-size: 1.25em; 
     line-height: 1.5em;
   }
+  .chapter h1 {
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.80);
+    b { display: block; margin-top: .75em; }
+  }
 }
 
 

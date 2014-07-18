@@ -1,0 +1,291 @@
+
+
+section.intro.chapter.white(data-background="intro_images/grunge_red.jpg")
+  h1 Part 6
+    b FP
+
+
+
+section.intro.green(data-background="#136")
+  h1 
+    b Functional Programming
+  br
+  p(style="color: white; padding-top: 0;") defn: 
+    span.fragment A declarative, function-based approach to programming
+
+
+
+section.intro.red(data-background="#125")
+  aside.notes you already know that a function is a named, parameterized expression
+  h1 Functions are 
+    b Expressions
+
+
+section.intro.red(data-background="#125")
+  aside.notes However, did you also know this? 
+    | What does this mean?
+  h1 Functions are 
+    i also
+    br
+    b Data
+    
+
+section
+  aside.notes If a function is data, I should be able to store it in a value and then invoke it. Or copy it as I please. Or even pass it to a function.
+  pre
+    code(data-trim, contenteditable).syntax.
+      val myFunction
+      myFunction()
+    br 
+    br 
+    code(data-trim, contenteditable).fragment.syntax.
+      val myCopy = myFunction
+      myCopy()
+    br 
+    br 
+    code(data-trim, contenteditable).fragment.syntax.
+      def invoke(someFunction) = someFunction()
+      invoke( myCopy )
+
+
+section.intro.green(data-background="#134")
+  h1 What does this 
+    b imply?
+
+
+
+section.intro.red(data-background="#125")
+  aside.notes Based on this, it should be apparent that we can store and copy functions
+  h1 Functions as data are <br>
+    b Storable
+    
+section.intro.red(data-background="#125")
+  aside.notes and pass them to other functions
+  h1 Functions as data are <br>
+    b Passable
+    
+section.intro.red(data-background="#125")
+  aside.notes and treat them as typed data
+  h1 Functions as data are <br>
+    b Typed
+
+
+
+section.intro.red(data-background="#125")
+  aside.notes One wonders...
+  h1 If Scala data has a <br>
+    b Type...
+    
+
+section.intro.green(data-background="#134")
+  h1 What is the 
+    b type 
+    | of a function? 
+
+
+
+section
+  aside.notes Here is a simple function. How would you describe it in terms of types? It has an input and an output type, is that enough? It turns out all you really need are the input types, the output types and their relation
+  pre
+    code(data-trim, contenteditable).
+      def buzz(x: Int): String = {
+        "the value is " + x
+      }
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      val fizz: (Int) => String = buzz
+    br
+    br
+    code(data-trim, contenteditable).fragment.
+      fizz(3)
+
+section(data-state="h_fun_types")
+  aside.notes The formal syntax for a function's type is about the inputs and outputs, which is why a function stored in a value is only known by its types
+  style.
+    .h_fun_types header:after{ content: "Syntax: Function Types"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      (type[, type, ...]) => output-type
+    br
+    br  
+  pre
+    code(data-trim, contenteditable).fragment.
+      def hello(name: String) = "Hello, " + name
+      val h: String => String = hello
+      h("World")
+
+
+section.intro.green(data-background="#134") 
+  h1 Wait, it gets even 
+    b Easier
+
+
+section(data-state="h_anon_fun")
+  aside.notes You don't really need to point to other functions. Just create new ones inline
+  style.
+    .h_anon_fun header:after{ content: "Syntax: Inline Functions"; }
+  pre
+    code(data-trim, contenteditable).syntax.
+      (input parameters) => expression
+    br
+    br  
+  pre
+    code(data-trim, contenteditable).fragment.
+      // def hello(name: String) = "Hello, " + name
+      // val h: String => String = hello
+
+      val h = (name: String) => "Hello, " + name
+      h("World")
+
+
+section.intro.green(data-background="#134") 
+  aside.notes Ok, thanks for being patient, let's put this knowledge to use
+  h1 So what you do with this 
+    b Magic?
+
+
+section.intro.green(data-background="#134") 
+  aside.notes You may have heard of a technology called Map/Reduce. What does that mean? 
+  h1 Well, you can 
+    b Map 
+    b.fragment Reduce 
+    span.fragment & 
+      b Filter
+
+
+
+
+section(data-state="h_mapping")
+  style.
+    .h_mapping header:after{ content: "map()"; }
+  aside.notes We're using a function literal in a call to map(). A map, in math, is the relation between input and output. In this case we are relating every item in a list to items in a new list, in this case by doubling them. What do you expect the result will be?
+  pre
+    code(data-trim, contenteditable).
+      List(1, 2, 3).map( (i: Int) => i * 2 )
+    code(data-trim, contenteditable).fragment.
+      // List(2, 4, 6)
+
+
+
+section(data-state="h_mapping")
+  aside.notes In this case, specifying types are not required. Since you're using a list of integers, its quite clear that the input to our mapping function is an integer
+  pre
+    code(data-trim, contenteditable).
+      List(1, 2, 3).map( (i) => i * 2 )
+    code(data-trim, contenteditable).
+      // List(2, 4, 6)
+
+
+section(data-state="h_mapping")
+  aside.notes The parentheses is only required when you have more than one input parameter...
+  pre
+    code(data-trim, contenteditable).
+      List(1, 2, 3).map( i => i * 2 )
+    code(data-trim, contenteditable).
+      // List(2, 4, 6)
+
+
+
+section.intro.red(data-background="#621") 
+  aside.notes This is why I really like Scala
+  h1 
+    b This 
+    | is why I just 
+    b &hearts; Scala
+    
+
+
+
+section.intro.green(data-background="#134") 
+  h1 Okay, serious time starts 
+    b NOW
+
+
+section.intro.green(data-background="#134") 
+  aside.notes Let's try a more realistic use case
+  h1 Do you remember 
+    br
+    b Case Classes 
+    | ?
+
+
+
+section(data-state="h_mapping")
+  aside.notes What if I have a list of users and just want their names?
+  pre
+    code(data-trim, contenteditable).
+      case class User(id: Long, name: String)
+
+      val users = List( User(23, "Kaylee"), 
+        User(42, "Wash"), User(12, "Jayne") )
+
+      users.map( u => u.name )
+    code(data-trim, contenteditable).fragment.
+      // List("Kaylee", "Wash", "Jayne")
+
+
+
+
+section(data-state="h_reducing")
+  aside.notes Let's reduce a list down to a single value
+  style.
+    .h_reducing header:after{ content: "reduce()"; }
+  pre
+    code(data-trim, contenteditable).
+      List(1, 2, 3).reduce( (sum, i) => sum + i )
+    code(data-trim, contenteditable).fragment.
+      // 6
+
+section(data-state="h_reducing")
+  aside.notes This time I'll use curly braces and made this look more like a real function. You can use either parentheses or curly braces when passing function literals. So, what does this return?
+  pre
+    code(data-trim, contenteditable).
+      List(29, 16, 72, 13).reduce { (max, i) => 
+        if (max < i) i else max
+      }
+    code(data-trim, contenteditable).fragment.
+      // 72
+
+
+
+
+section(data-state="h_filtering")
+  aside.notes Finally, lets do some filtering
+  style.
+    .h_filtering header:after{ content: "filter()"; }
+  pre
+    code(data-trim, contenteditable).
+      List(1, 2, 3).filter( i => i < 3 )
+    code(data-trim, contenteditable).fragment.
+      // List(1, 2)
+
+
+section(data-state="h_filtering")
+  aside.notes Let's try our case class example again
+  pre
+    code(data-trim, contenteditable).
+      case class User(id: Long, name: String)
+
+      val users = List( User(23, "Kaylee"), 
+        User(42, "Wash"), User(12, "Jayne") )
+
+      users.filter( u => u.name == "Wash" )
+    code(data-trim, contenteditable).fragment.
+      // List(User(42,Wash))
+
+
+
+
+section.intro.green(data-background="#134") 
+  aside.notes So then....
+  h1 
+    b That 
+    | was map(), reduce() & filter()
+
+
+
+section.intro.darkBlue(data-background="#ee3")
+  h1 How about we 
+    b try out
+    |  your new skills?
