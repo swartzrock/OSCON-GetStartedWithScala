@@ -1,0 +1,37 @@
+
+section
+  h3 First Class Functions
+  ol 
+    li Change 
+     code /clouds 
+     | to print out all the cloud names in uppercase using .map
+     ul
+      li Hint: String has a 
+        code .toUpperCase() 
+        | method
+
+section
+  h3 Functions
+  ol 
+    li Implement 
+      code /averageTemp 
+      | (average temperature for a city)
+    li Implement 
+      code /maxTemp 
+      | (maximum temperature for a given date)
+ 
+section
+  h3 Putting it all together
+  ol 
+    li Come up with an query of your choice on the weather data and implement an endpoint for it
+    ul
+      li Ideas:
+        ul
+          li Standard deviation of high temps for a city
+          li Average range of temperature
+          li Use a simple linear model to forecast tomorrow's weather
+    li Add a field to 
+      code WeatherRecord 
+      | representing inches of rainfall. Modify 
+      code WeatherService 
+      | to handle both csv entries with the rainfall field and without
