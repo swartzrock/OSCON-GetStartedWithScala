@@ -95,8 +95,9 @@ $introFont: Oswald;
 #body .reveal {
   .bigfancy {
   	color: #ea6; 
-  	font: normal 4em Lobster,serif;
+  	font: normal 6em Lobster,serif;
   	text-shadow: 1px 2px 3px rgba(0,0,0,0.7)
+    b { font-size: 10em; }
   }
   .bullet1 {
     li { 
@@ -143,6 +144,9 @@ $introFont: Oswald;
   .bigger {
     font-size: 1.25em; 
     line-height: 1.5em;
+  }
+  .smaller {
+    font-size: .8em; 
   }
   .chapter h1 {
     text-shadow: 4px 4px 3px rgba(0,0,0,0.80);
