@@ -137,55 +137,220 @@ section(data-state="h_anon_fun")
 
       val h = (name: String) => "Hello, " + name
       h("World")
-
-
-section.intro.green(data-background="#134") 
-  aside.notes Ok, thanks for being patient, let's put this knowledge to use
-  h1 So what you do with this 
-    b Magic?
-
-
-section.intro.green(data-background="#134") 
-  aside.notes You may have heard of a technology called Map/Reduce. What does that mean? 
-  h1 Well, you can 
-    b Map 
-    b.fragment Reduce 
-    span.fragment & 
-      b Filter
-
-
-
-
-section(data-state="h_mapping")
-  style.
-    .h_mapping header:after{ content: "map()"; }
-  aside.notes We're using a function literal in a call to map(). A map, in math, is the relation between input and output. In this case we are relating every item in a list to items in a new list, in this case by doubling them. What do you expect the result will be?
-  pre
-    code(data-trim, contenteditable).
-      List(1, 2, 3).map( (i: Int) => i * 2 )
+    br
     code(data-trim, contenteditable).fragment.
-      // List(2, 4, 6)
+      val l = (name: String) => {
+          val nameLength = name.length
+          "Your name is " + nameLength + " letters long!"
+      }
 
 
+section.intro.green(data-background="#134") 
+  aside.notes Ok, thanks for being patient, let's put this knowledge to use. What haven't we covered yet? Loops
+  h1 So... 
+    br
+    b What?
 
-section(data-state="h_mapping")
-  aside.notes In this case, specifying types are not required. Since you're using a list of integers, its quite clear that the input to our mapping function is an integer
+section
+  aside.notes Here is a for loop in Scala (quick breakdown)
   pre
     code(data-trim, contenteditable).
-      List(1, 2, 3).map( (i) => i * 2 )
-    code(data-trim, contenteditable).
-      // List(2, 4, 6)
+      def makePies: List[String] = {
+        val fruits = List("apple", "cherry", "rhubarb")
+        val changedFruits = 
+          new scala.collection.mutable.ListBuffer[String]
+        for (i <- 0 until fruits.length) {
+            changedFruits += (fruits(i) + " pie")
+        }
+        changedFruits.result
+      }
 
-
-section(data-state="h_mapping")
-  aside.notes The parentheses is only required when you have more than one input parameter...
+section
   pre
     code(data-trim, contenteditable).
-      List(1, 2, 3).map( i => i * 2 )
+      def makeJuice: List[String] = {
+        val fruits = List("apple", "orange", "cranberry")
+        val changedFruits = 
+          new scala.collection.mutable.ListBuffer[String]
+        for (i <- 0 until fruits.length) {
+            changedFruits += (fruits(i) + " juice")
+        }
+        changedFruits.result
+      }
+
+section
+  aside.notes In the spirit of DRY, what changes? Let's abstract that away
+  pre
     code(data-trim, contenteditable).
-      // List(2, 4, 6)
+      def freezeFruit: List[String] = {
+        val fruits = List("strawberry", "blueberry", "grape")
+        val changedFruits = 
+          new scala.collection.mutable.ListBuffer[String]
+        for (i <- 0 until fruits.length) {
+            changedFruits += ("frozen " + fruits(i))
+        }
+        changedFruits.result
+      }
 
+section(data-state="h_firstclass").left
+  aside.notes What would the interface look like?
+  style.
+    .h_firstclass header:after{ content: "map"; }
+  code(data-trim, contenteditable) (list of parameters' types) => return type
+  br
+  br
+  code(data-trim, contenteditable).fragment (String) => String
+  br
+  br
+  pre
+    code(data-trim, contenteditable).fragment 
+     | def map(fruitList:List[String], 
+     |         theFunction: (String) => String): List[String]
 
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def map(fruits: List[String], 
+          theFunction: (String) => String): List[String] = {
+          val newList = 
+            new scala.collection.mutable.ListBuffer[String]
+          for (i <- 0 until fruits.length) {
+              newList += theFunction(fruits(i))
+          }   
+          newList.result      
+      }
+
+section(data-state="h_mapimpl").left
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      val makePie = { (fruit: String) => fruit + " pie" }
+      val freezeFruit = { (fruit: String) => "frozen " + fruit }
+      val fruits = List("apple", "cherry", "peach")
+
+      map(fruits, makePie) 
+        //List("apple pie", "cherry pie", "peach pie")
+      map(fruits, freezeFruit) 
+        //List("frozen apple", "frozen cherry", "frozen peach")
+
+section(data-state="h_mapimpl").left
+  aside.notes Do we have to write map() over and over?
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def measureFruit: List[Int] = {
+        val fruits = List("apple", "orange", "cranberry")
+        val changedFruits = 
+          new scala.collection.mutable.ListBuffer[Int]
+        for (i <- 0 until fruits.length) {
+            changedFruits += fruits(i).length
+        }
+        changedFruits.result
+      }
+
+section(data-state="h_mapimpl").left
+  aside.notes Generics. Vector, map, linkedlist?
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      def map[I, O](inputList: List[I], 
+          theFunction: (I) => O): 
+          List[O] = {
+          val outputList = 
+            new scala.collection.mutable.ListBuffer[O]
+          for (i <- 0 until inputList.length) {
+              outputList += theFunction(inputList(i))
+          }   
+          outputList.result      
+      }
+
+section(data-state="h_mapimpl").left
+  aside.notes Stress this is a std library function
+  style.
+    .h_mapimpl header:after{ content: "map"; }
+  pre
+    code(data-trim, contenteditable).
+      abstract class Collection[A] {
+          ...
+          def map(theFunction: (A) => B): Collection[B] = 
+          ...
+      }
+
+      fruitList.map(makePies)
+      fruitList.map( (fruit: String) => fruit.length )
+
+section.intro.darkBlue(data-background="#ee3")
+  h1 exercise break
+    |!!!
+
+section
+  h3 First Class Functions
+  ol 
+    li Change 
+     code /clouds 
+     | to print out all the cloud names in uppercase using .map
+     ul
+      li Hint: String has a 
+        code .toUpperCase() 
+        | method
+
+section.intro.green(data-background="#134") 
+  aside.notes Why is this important? FP
+  h1 So... 
+    br
+    b What?
+
+section.intro.green(data-background="#136")
+  aside.notes Math def. Black box. point out our functions hold this property
+  img(src="instructions/images/function_machine_f.png" height=450)
+  br
+  p(style="color: white;") A function is a relation between values where each of its input values gives back exactly one output value
+
+section.intro.red(data-background="#125")
+  aside.notes unit testing, debugging, correctness
+  h1.intro Functions are
+  h1 
+    b Deterministic
+  p(style="color: white;").fragment You will always get the same result if you run them with the same data.
+
+section.intro.red(data-background="#125")
+  aside.notes black box. readability, reuse, refactoring
+  h1.intro Functions are
+  h1 
+    b Encapsulated
+  p(style="color: white;").fragment The interface is all you need to know about a function's behavior.
+
+section.intro.red(data-background="#125")
+  aside.notes parallelization, concurrency, lazy evaluation
+  h1.intro Functions are
+  h1 
+    b Commutative
+  p(style="color: white;").fragment The order of evaluation doesn't matter.
+
+section
+  aside.notes do we have to do the first two lines in the same order? do the same computers have to do them? when do they have to be done?
+  pre
+    code(data-trim, contenteditable).
+      val firstThing = doOneThing()
+      val secondThing = doAnotherThing()
+
+      val thirdThing = doTheLastThing(firstThing, secondThing)
+    br
+
+section.intro.red(data-background="#125")
+  aside.notes great for concurrency (inherently threadsafe), great for rollback of data, makes lots of work simpler
+  h1.intro Data is
+  h1 
+    b Immutable
+  p(style="color: white;").fragment 
+    | Once an object is created, it cannot be changed.
+    br
+    | If you need to change an object, make your own copy.
 
 section.intro.red(data-background="#621") 
   aside.notes This is why I really like Scala
@@ -193,38 +358,6 @@ section.intro.red(data-background="#621")
     b This 
     | is why I just 
     b &hearts; Scala
-    
-
-
-
-section.intro.green(data-background="#134") 
-  h1 Okay, serious time starts 
-    b NOW
-
-
-section.intro.green(data-background="#134") 
-  aside.notes Let's try a more realistic use case
-  h1 Do you remember 
-    br
-    b Case Classes 
-    | ?
-
-
-
-section(data-state="h_mapping")
-  aside.notes What if I have a list of users and just want their names?
-  pre
-    code(data-trim, contenteditable).
-      case class User(id: Long, name: String)
-
-      val users = List( User(23, "Kaylee"), 
-        User(42, "Wash"), User(12, "Jayne") )
-
-      users.map( u => u.name )
-    code(data-trim, contenteditable).fragment.
-      // List("Kaylee", "Wash", "Jayne")
-
-
 
 
 section(data-state="h_reducing")
@@ -273,7 +406,6 @@ section(data-state="h_filtering")
       users.filter( u => u.name == "Wash" )
     code(data-trim, contenteditable).fragment.
       // List(User(42,Wash))
-
 
 
 
