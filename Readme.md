@@ -14,10 +14,9 @@
 
 ## Files
 
-* demo.jade - slide examples
-* exercises.jade - the tutorial exercises
-* instruction.jade - tutorial content
-* index.jade - front page 
-* oscon_theme.scss - to be improved
+* index.jade - links to the intro and instructions
+* intro.jade - introducing our session 
+* instruction.jade - tutorial content & exercises
+* oscon_theme.scss - our own reveal.js theme
 
 
